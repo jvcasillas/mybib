@@ -1,8 +1,3 @@
----
-output: 
-  html_document: 
-    keep_md: yes
----
 
 # mybib
 
@@ -17,22 +12,20 @@ This is **NOT** synchronized with my online CV (for the TODO list).
 ----
 
 
-```{r timestamp, echo = FALSE}
-message(sprintf("Last Updated: %s", Sys.time()))
+
+```
+## Last Updated: 2017-05-17 12:11:31
 ```
 
 License: Public Domain (CC-0)
 
 
-```{r setup, echo = FALSE, results="hide"}
-library("knitr")
-opts_knit$set(upload.fun = imgur_upload, base.url = NULL)
-opts_chunk$set(fig.width=8, fig.height=5, cache=TRUE)
-````
+
 
 Here are some basic statistics on its contents:
 
-```{r data}
+
+```r
 library("RefManageR")
 library("ggplot2")
 bib <- suppressWarnings(RefManageR::ReadBib("publicationsCVclean.bib", check = FALSE))
