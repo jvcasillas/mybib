@@ -14,10 +14,13 @@ This is **NOT** synchronized with my online CV (for the TODO list).
 
 
 ```
-## Last Updated: 2017-05-17 12:21:18
+## Last Updated: 2017-05-17 12:23:53
 ```
 
 License: Public Domain (CC-0)
+
+I am still testing this. Initial commit is direct copy of example done by 
+[@leeper](https://github.com/leeper/references). 
 
 
 

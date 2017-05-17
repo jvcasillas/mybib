@@ -23,6 +23,9 @@ message(sprintf("Last Updated: %s", Sys.time()))
 
 License: Public Domain (CC-0)
 
+I am still testing this. Initial commit is direct copy of example done by 
+[@leeper](https://github.com/leeper/references). 
+
 
 ```{r setup, echo = FALSE, results="hide"}
 library("knitr")
