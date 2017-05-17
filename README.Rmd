@@ -38,5 +38,46 @@ library("ggplot2")
 bib <- suppressWarnings(RefManageR::ReadBib("publicationsCVclean.bib", check = FALSE))
 dat <- as.data.frame(bib)
 dat$year <- as.numeric(dat$year)
-# dat$journal[is.na(dat$journal)] <- dat$journaltitle[is.na(dat$journal)]
+dat$journal[is.na(dat$journal)] <- dat$journal[is.na(dat$journal)]
+```
+
+
+## Citation Types
+
+```{r bibtype}
+dat$bibtype <- factor(dat$bibtype, levels = names(sort(table(dat$bibtype))))
+ggplot(dat, aes(x = bibtype)) + geom_bar() + 
+  xlab("Count") + ylab("Citation Type") + coord_flip()
+```
+
+## Journals
+
+```{r journal}
+datj <- aggregate(bibtype ~ journal, data = dat, FUN = length)
+datj <- head(datj[order(datj$bibtype, decreasing = TRUE), ], 30)
+datj$journal <- factor(datj$journal, levels = rev(datj$journal))
+ggplot(datj, aes(x = journal, y = bibtype)) + geom_bar(stat = "identity") + 
+  ylab("Count") + xlab("Journal") + coord_flip()
+```
+
+## Authors
+
+```{r authors, fig.height = 8}
+aut <- unlist(lapply(unlist(lapply(bib, function(x) unclass(x$author)), recursive = FALSE), `[[`, "family"))
+aut <- as.data.frame(head(sort(table(aut), decreasing = TRUE), 50))
+aut$aut <- factor(aut$aut, levels = rev(aut$aut))
+ggplot(aut, aes(x = aut, y = Freq)) + geom_bar(stat = "identity") + 
+  ylab("Count") + xlab("Author Surname") + coord_flip()
+```
+
+## Publication Years
+
+```{r year}
+ggplot(dat[dat$year > 1900, ], aes(x = year)) + geom_bar() +
+  xlab("Publication Year") + ylab("Count")
+```
+
+```{r wrapup, echo = FALSE, results="hide"}
+unlink("cache", recursive = TRUE)
+unlink("figure", recursive = TRUE)
 ```
