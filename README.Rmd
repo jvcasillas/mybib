@@ -38,11 +38,12 @@ Here are some basic statistics on its contents:
 ```{r data}
 library("RefManageR")
 library("ggplot2")
-bib <- suppressWarnings(RefManageR::ReadBib("publicationsCVclean.bib", check = FALSE))
+bib <- suppressWarnings(RefManageR::ReadBib(here::here("publicationsCVclean.bib"), check = FALSE))
 dat <- as.data.frame(bib)
 dat$year <- as.numeric(dat$year)
 dat$journal[is.na(dat$journal)] <- dat$journal[is.na(dat$journal)]
 ```
+
 
 
 ## Citation Types
