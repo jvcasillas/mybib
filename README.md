@@ -1,3 +1,8 @@
+---
+output: 
+  html_document: 
+    keep_md: yes
+---
 
 # mybib
 
@@ -14,7 +19,12 @@ This is **NOT** synchronized with my online CV (for the TODO list).
 
 
 ```
-## Last Updated: 2017-05-17 12:23:53
+## Warning in as.POSIXlt.POSIXct(x, tz): unknown timezone 'zone/tz/2017c.1.0/
+## zoneinfo/America/New_York'
+```
+
+```
+## Last Updated: 2017-12-19 11:08:26
 ```
 
 License: Public Domain (CC-0)
@@ -47,7 +57,7 @@ ggplot(dat, aes(x = bibtype)) + geom_bar() +
   xlab("Count") + ylab("Citation Type") + coord_flip()
 ```
 
-![](http://i.imgur.com/gHL2PfP.png)<!-- -->
+<img src="https://i.imgur.com/F6i9vfg.png" width="768" />
 
 ## Journals
 
@@ -60,7 +70,7 @@ ggplot(datj, aes(x = journal, y = bibtype)) + geom_bar(stat = "identity") +
   ylab("Count") + xlab("Journal") + coord_flip()
 ```
 
-![](http://i.imgur.com/IqM0YDC.png)<!-- -->
+<img src="https://i.imgur.com/8GXXi7B.png" width="768" />
 
 ## Authors
 
@@ -73,7 +83,7 @@ ggplot(aut, aes(x = aut, y = Freq)) + geom_bar(stat = "identity") +
   ylab("Count") + xlab("Author Surname") + coord_flip()
 ```
 
-![](http://i.imgur.com/W0ctoef.png)<!-- -->
+<img src="https://i.imgur.com/rk3T1db.png" width="768" />
 
 ## Publication Years
 
@@ -87,6 +97,6 @@ ggplot(dat[dat$year > 1900, ], aes(x = year)) + geom_bar() +
 ## Warning: Removed 2 rows containing non-finite values (stat_count).
 ```
 
-![](http://i.imgur.com/5anfpff.png)<!-- -->
+<img src="https://i.imgur.com/kqvmDz7.png" width="768" />
 
 
