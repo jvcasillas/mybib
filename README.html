@@ -127,18 +127,17 @@ $(document).ready(function () {
 <p>This is a ‘clean’ version. It only contains UTF-8 chars (i.e. no <code>tipa</code>).</p>
 <p>This is <strong>NOT</strong> synchronized with my online CV (for the TODO list).</p>
 <hr />
-<pre><code>## Warning in as.POSIXlt.POSIXct(x, tz): unknown timezone 'zone/tz/2017c.1.0/
-## zoneinfo/America/New_York'</code></pre>
-<pre><code>## Last Updated: 2017-12-19 11:08:26</code></pre>
+<pre><code>## Last Updated: 2018-05-15 09:59:59</code></pre>
 <p>License: Public Domain (CC-0)</p>
 <p>I am still testing this. Initial commit is direct copy of example done by <span class="citation">[@leeper]</span>(<a href="https://github.com/leeper/references" class="uri">https://github.com/leeper/references</a>).</p>
 <p>Here are some basic statistics on its contents:</p>
 <pre class="r"><code>library(&quot;RefManageR&quot;)
 library(&quot;ggplot2&quot;)
-bib &lt;- suppressWarnings(RefManageR::ReadBib(&quot;publicationsCVclean.bib&quot;, check = FALSE))
+bib &lt;- suppressWarnings(RefManageR::ReadBib(here::here(&quot;publicationsCVclean.bib&quot;), check = FALSE))
 dat &lt;- as.data.frame(bib)
-dat$year &lt;- as.numeric(dat$year)
-dat$journal[is.na(dat$journal)] &lt;- dat$journal[is.na(dat$journal)]</code></pre>
+dat$year &lt;- as.numeric(dat$year)</code></pre>
+<pre><code>## Warning: NAs introducidos por coerci'on</code></pre>
+<pre class="r"><code>dat$journal[is.na(dat$journal)] &lt;- dat$journal[is.na(dat$journal)]</code></pre>
 <div id="citation-types" class="section level2">
 <h2>Citation Types</h2>
 <pre class="r"><code>dat$bibtype &lt;- factor(dat$bibtype, levels = names(sort(table(dat$bibtype))))

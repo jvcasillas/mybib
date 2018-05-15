@@ -19,12 +19,7 @@ This is **NOT** synchronized with my online CV (for the TODO list).
 
 
 ```
-## Warning in as.POSIXlt.POSIXct(x, tz): unknown timezone 'zone/tz/2017c.1.0/
-## zoneinfo/America/New_York'
-```
-
-```
-## Last Updated: 2017-12-19 11:08:26
+## Last Updated: 2018-05-15 09:59:59
 ```
 
 License: Public Domain (CC-0)
@@ -41,11 +36,19 @@ Here are some basic statistics on its contents:
 ```r
 library("RefManageR")
 library("ggplot2")
-bib <- suppressWarnings(RefManageR::ReadBib("publicationsCVclean.bib", check = FALSE))
+bib <- suppressWarnings(RefManageR::ReadBib(here::here("publicationsCVclean.bib"), check = FALSE))
 dat <- as.data.frame(bib)
 dat$year <- as.numeric(dat$year)
+```
+
+```
+## Warning: NAs introducidos por coerci'on
+```
+
+```r
 dat$journal[is.na(dat$journal)] <- dat$journal[is.na(dat$journal)]
 ```
+
 
 
 ## Citation Types
