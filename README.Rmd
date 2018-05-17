@@ -1,7 +1,5 @@
 ---
-output: 
-  html_document: 
-    keep_md: yes
+output: md_document
 ---
 
 # mybib
@@ -35,7 +33,7 @@ opts_chunk$set(fig.width=8, fig.height=5, cache=TRUE)
 
 Here are some basic statistics on its contents:
 
-```{r, 'data'}
+```{r, 'data', message=FALSE, warning=FALSE}
 library(RefManageR)
 library(tidyverse)
 library(here)
@@ -46,9 +44,6 @@ bib <- suppressWarnings(ReadBib(here("publicationsCVclean.bib"),
 dat <- bib %>% 
   as.tibble(.) %>% 
   mutate(., year = as.numeric(year))
-
-# dat$year <- as.numeric(dat$year)
-# dat$journal[is.na(dat$journal)] <- dat$journal[is.na(dat$journal)]
 ```
 
 
