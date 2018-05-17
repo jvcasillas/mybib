@@ -17,71 +17,138 @@ This is **NOT** synchronized with my online CV (for the TODO list).
 ----
 
 
-```{r timestamp, echo = FALSE}
+```{r, 'timestamp', echo=FALSE}
 message(sprintf("Last Updated: %s", Sys.time()))
 ```
 
 License: Public Domain (CC-0)
 
-I am still testing this. Initial commit is direct copy of example done by 
+I am still testing this. Initial commit is a direct copy of example done by 
 [@leeper](https://github.com/leeper/references). 
 
 
-```{r setup, echo = FALSE, results="hide"}
+```{r, 'setup', echo=FALSE, results="hide"}
 library("knitr")
 opts_knit$set(upload.fun = imgur_upload, base.url = NULL)
 opts_chunk$set(fig.width=8, fig.height=5, cache=TRUE)
-````
+```
 
 Here are some basic statistics on its contents:
 
-```{r data}
-library("RefManageR")
-library("ggplot2")
-bib <- suppressWarnings(RefManageR::ReadBib(here::here("publicationsCVclean.bib"), check = FALSE))
-dat <- as.data.frame(bib)
-dat$year <- as.numeric(dat$year)
-dat$journal[is.na(dat$journal)] <- dat$journal[is.na(dat$journal)]
+```{r, 'data'}
+library(RefManageR)
+library(tidyverse)
+library(here)
+
+bib <- suppressWarnings(ReadBib(here("publicationsCVclean.bib"), 
+                                check = FALSE))
+
+dat <- bib %>% 
+  as.tibble(.) %>% 
+  mutate(., year = as.numeric(year))
+
+# dat$year <- as.numeric(dat$year)
+# dat$journal[is.na(dat$journal)] <- dat$journal[is.na(dat$journal)]
 ```
 
 
 
 ## Citation Types
 
-```{r bibtype, fig.retina=2}
-dat$bibtype <- factor(dat$bibtype, levels = names(sort(table(dat$bibtype))))
-ggplot(dat, aes(x = bibtype)) + geom_bar() + 
-  xlab("Count") + ylab("Citation Type") + coord_flip()
+```{r, 'bibtype', fig.retina=2}
+counts <- xtabs(~bibtype, data = bib) %>% as.tibble
+
+counts %>% 
+  mutate(., bibtype = fct_reorder(bibtype, n)) %>% 
+  ggplot(., aes(x = bibtype, y = n, label = n)) + 
+    geom_bar(stat = 'identity', color = 'black', 
+             fill = 'lightblue', width = 0.1) + 
+    geom_point(pch = 21, size = 10, color = 'black', fill = 'lightgrey') + 
+    geom_text() + 
+    labs(y = "Count", x = "Citation Type") + 
+    coord_flip() + 
+    theme_test()
 ```
 
 ## Journals
 
-```{r journal, fig.retina=2}
-datj <- aggregate(bibtype ~ journal, data = dat, FUN = length)
-datj <- head(datj[order(datj$bibtype, decreasing = TRUE), ], 30)
-datj$journal <- factor(datj$journal, levels = rev(datj$journal))
-ggplot(datj, aes(x = journal, y = bibtype)) + geom_bar(stat = "identity") + 
-  ylab("Count") + xlab("Journal") + coord_flip()
+```{r, 'journal', fig.retina=2}
+datj <- aggregate(bibtype ~ journal, data = bib, FUN = length)
+
+dat %>% 
+  group_by(., journal) %>% 
+  summarize(., counts = n()) %>% 
+  na.omit() %>% 
+  mutate(., journal = fct_reorder(journal, counts)) %>% 
+  ggplot(., aes(x = journal, y = counts, label = counts)) + 
+    geom_bar(stat = "identity", color = 'black', 
+             fill = 'lightblue', width = 0.1) + 
+    geom_point(pch = 21, size = 10, color = 'black', fill = 'lightgrey') + 
+    geom_text() + 
+    labs(y = "Count", x = "Journal") + 
+    coord_flip() + 
+    theme_test()
 ```
 
 ## Authors
 
-```{r authors, fig.height = 8, fig.retina=2}
-aut <- unlist(lapply(unlist(lapply(bib, function(x) unclass(x$author)), recursive = FALSE), `[[`, "family"))
-aut <- as.data.frame(head(sort(table(aut), decreasing = TRUE), 50))
-aut$aut <- factor(aut$aut, levels = rev(aut$aut))
-ggplot(aut, aes(x = aut, y = Freq)) + geom_bar(stat = "identity") + 
-  ylab("Count") + xlab("Author Surname") + coord_flip()
+```{r, 'authors', fig.height=8, fig.retina=2}
+# Initialize list
+authors <- list()
+
+# For each element in list, get last name of author and store in 
+# 'authors' list
+for (i in 1:length(bib)) {
+  authors[[i]] <- bib[i]$author$family %>% unlist(.)
+}
+
+# Convert to tibble and plot
+authors %>% 
+  unlist(.) %>% 
+  as.tibble(.) %>% 
+  group_by(., value) %>% 
+  summarize(., counts = n()) %>% 
+  mutate(., value = fct_reorder(value, counts)) %>% 
+  ggplot(., aes(x = value, y = counts, label = counts)) + 
+    geom_bar(stat = "identity", color = 'black', 
+             fill = 'lightblue', width = 0.1) + 
+    geom_point(pch = 21, size = 10, color = 'black', fill = 'lightgrey') + 
+    geom_text() + 
+    labs(y = "Count", x = "Author") + 
+    coord_flip() + 
+    theme_test()
 ```
 
 ## Publication Years
 
-```{r year, fig.retina=2}
-ggplot(dat[dat$year > 1900, ], aes(x = year)) + geom_bar() +
-  xlab("Publication Year") + ylab("Count")
+```{r, 'year', fig.retina=2}
+prod <- dat %>% 
+  select(., year) %>% 
+  na.omit(.) %>% 
+  group_by(., year) %>% 
+  summarize(., counts = n()) %>% 
+  ungroup(.) %>% 
+  mutate(., status = if_else(year <=2012, 'MA\nStudent', 
+                             if_else(year <=2016, 'PhD\nStudent', 'Asst.\nProf')), 
+            status = fct_relevel(status, 
+                                 c('MA\nStudent', 'PhD\nStudent', 'Asst.\nProf')))
+
+year_max <- max(prod$counts)
+
+prod %>% 
+  ggplot(., aes(x = year, y = counts, label = counts)) + 
+    geom_bar(stat = "identity", color = 'black', 
+             fill = 'lightblue', width = 0.1) + 
+    geom_point(aes(shape = status, fill = status), size = 10, color = 'black') + 
+    scale_shape_manual(name = '', values = 21:23) + 
+    geom_text(color = 'white') + 
+    scale_fill_brewer(name = '', palette = 'Set1') + 
+    labs(y = "Count", x = "Year", 
+         title = "Productivity as a function of year and status") + 
+    expand_limits(y = c(0, year_max + 5))
 ```
 
-```{r wrapup, echo = FALSE, results="hide", fig.retina=2}
+```{r, 'cleanup'}
 unlink("cache", recursive = TRUE)
 unlink("figure", recursive = TRUE)
 ```

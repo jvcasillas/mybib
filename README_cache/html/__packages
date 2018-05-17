@@ -1,4 +1,14 @@
 base
 knitr
 RefManageR
+tidyverse
 ggplot2
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats
+here
+bindrcpp
