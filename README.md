@@ -11,12 +11,12 @@ This is **NOT** synchronized with my online CV (for the TODO list).
 
 ------------------------------------------------------------------------
 
-    ## Last Updated: 2018-08-29 09:30:42
+    ## Last Updated: 2018-08-29 09:37:06
 
 License: Public Domain (CC-0)
 
 I am still testing this. Initial commit is a direct copy of example done
-by \[@leeper\](<https://github.com/leeper/references>).
+by [leeper](https://github.com/leeper/references).
 
 Here are some basic statistics on its contents:
 
