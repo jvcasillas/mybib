@@ -4,14 +4,14 @@ mybib
 Version controlled .bib file for my articles, proceedings,
 presentations, posters, and workshops.
 
-This is a 'clean' version. It only contains UTF-8 chars (i.e. no
+This is a ‘clean’ version. It only contains UTF-8 chars (i.e. no
 `tipa`).
 
 This is **NOT** synchronized with my online CV (for the TODO list).
 
 ------------------------------------------------------------------------
 
-    ## Last Updated: 2018-05-17 00:48:42
+    ## Last Updated: 2018-08-29 09:30:42
 
 License: Public Domain (CC-0)
 
@@ -132,3 +132,26 @@ Publication Years
 
     unlink("cache", recursive = TRUE)
     unlink("figure", recursive = TRUE)
+
+Journals
+========
+
+Already published
+-----------------
+
+-   Journal of second language studies
+-   second language research
+-   phonetica
+-   journal of the acoustical society of america
+-   journal of phonetics
+
+Wishlist
+--------
+
+-   Applied Psycholinguistics
+-   Studies in SLA
+-   international journal of bilingualism
+-   Heritage Language Journal
+-   Frontiers in Psychology
+-   Bilingualism: language and cognition
+-   language and speech

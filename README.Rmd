@@ -147,3 +147,26 @@ prod %>%
 unlink("cache", recursive = TRUE)
 unlink("figure", recursive = TRUE)
 ```
+
+
+# Journals
+
+## Already published
+
+- Journal of second language studies
+- second language research
+- phonetica
+- journal of the acoustical society of america
+- journal of phonetics
+
+## Wishlist
+
+- Applied Psycholinguistics
+- Studies in SLA
+- international journal of bilingualism
+- Heritage Language Journal
+- Frontiers in Psychology
+- Bilingualism: language and cognition
+- language and speech
+
+
