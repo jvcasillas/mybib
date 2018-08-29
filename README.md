@@ -11,7 +11,7 @@ This is **NOT** synchronized with my online CV (for the TODO list).
 
 ------------------------------------------------------------------------
 
-    ## Last Updated: 2018-08-29 09:37:06
+    ## Last Updated: 2018-08-29 09:40:28
 
 License: Public Domain (CC-0)
 
@@ -139,19 +139,27 @@ Journals
 Already published
 -----------------
 
--   Journal of second language studies
--   second language research
--   phonetica
--   journal of the acoustical society of america
--   journal of phonetics
+-   Journal of Second Language Studies
+-   Second Language Research
+-   Phonetica
+-   Journal of the Acoustical Society of America
+-   Journal of Phonetics
+
+Submitted
+---------
+
+-   Language and Speech
+-   Bilingualism: Language and Cognition
+
+In prep
+-------
+
+-   International Journal of Bilingualism
 
 Wishlist
 --------
 
 -   Applied Psycholinguistics
 -   Studies in SLA
--   international journal of bilingualism
 -   Heritage Language Journal
 -   Frontiers in Psychology
--   Bilingualism: language and cognition
--   language and speech
