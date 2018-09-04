@@ -28,7 +28,7 @@ I am still testing this. Initial commit is a direct copy of example done by
 ```{r, 'setup', echo=FALSE, results="hide"}
 library("knitr")
 opts_knit$set(upload.fun = imgur_upload, base.url = NULL)
-opts_chunk$set(fig.width=8, fig.height=5, cache=TRUE)
+opts_chunk$set(fig.width=8, fig.height=5)
 ```
 
 Here are some basic statistics on its contents:
