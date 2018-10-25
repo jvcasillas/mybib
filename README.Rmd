@@ -143,10 +143,6 @@ prod %>%
     expand_limits(y = c(0, year_max + 5))
 ```
 
-```{r, 'cleanup'}
-unlink("cache", recursive = TRUE)
-unlink("figure", recursive = TRUE)
-```
 
 
 # Journals

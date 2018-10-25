@@ -11,7 +11,7 @@ This is **NOT** synchronized with my online CV (for the TODO list).
 
 ------------------------------------------------------------------------
 
-    ## Last Updated: 2018-10-25 13:20:21
+    ## Last Updated: 2018-10-25 13:22:45
 
 License: Public Domain (CC-0)
 
@@ -47,7 +47,7 @@ Citation Types
         coord_flip() + 
         theme_test()
 
-<img src="https://i.imgur.com/tlZldEe.png" width="768" />
+<img src="https://i.imgur.com/1KVXQPc.png" width="768" />
 
 Journals
 --------
@@ -68,7 +68,7 @@ Journals
         coord_flip() + 
         theme_test()
 
-<img src="https://i.imgur.com/yITA8kh.png" width="768" />
+<img src="https://i.imgur.com/duyxPmg.png" width="768" />
 
 Authors
 -------
@@ -98,7 +98,7 @@ Authors
         coord_flip() + 
         theme_test()
 
-<img src="https://i.imgur.com/VFiLdXV.png" width="768" />
+<img src="https://i.imgur.com/BFmKyvy.png" width="768" />
 
 Publication Years
 -----------------
@@ -128,10 +128,7 @@ Publication Years
              title = "Productivity as a function of year and status") + 
         expand_limits(y = c(0, year_max + 5))
 
-<img src="https://i.imgur.com/2YUoeBP.png" width="768" />
-
-    unlink("cache", recursive = TRUE)
-    unlink("figure", recursive = TRUE)
+<img src="https://i.imgur.com/vMmUEY0.png" width="768" />
 
 Journals
 ========
