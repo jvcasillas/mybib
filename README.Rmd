@@ -158,22 +158,28 @@ unlink("figure", recursive = TRUE)
 - Phonetica
 - Journal of the Acoustical Society of America
 - Journal of Phonetics
+- Bilingualism: Language and Cognition
 
 ## Submitted
 
 - Language and Speech
-- Bilingualism: Language and Cognition
+- Language Learning
 
 ## In prep
 
-- International Journal of Bilingualism
+- Journal of Second Language Pronunciation
+
+## On deck
+
+- Studies in SLA (replication study)
 
 ## Wishlist
 
-- Applied Psycholinguistics
-- Studies in SLA
+- Applied Psycholinguistics (10k)
+- Studies in SLA (7k, replications = 6k)
 - Heritage Language Journal
 - Frontiers in Psychology
+- International Journal of Bilingualism
 
 
 

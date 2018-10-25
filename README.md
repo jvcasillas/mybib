@@ -11,7 +11,7 @@ This is **NOT** synchronized with my online CV (for the TODO list).
 
 ------------------------------------------------------------------------
 
-    ## Last Updated: 2018-09-03 21:19:13
+    ## Last Updated: 2018-10-25 13:20:21
 
 License: Public Domain (CC-0)
 
@@ -47,7 +47,7 @@ Citation Types
         coord_flip() + 
         theme_test()
 
-<img src="https://i.imgur.com/MDoV51F.png" width="768" />
+<img src="https://i.imgur.com/tlZldEe.png" width="768" />
 
 Journals
 --------
@@ -68,7 +68,7 @@ Journals
         coord_flip() + 
         theme_test()
 
-<img src="https://i.imgur.com/8iPUvY5.png" width="768" />
+<img src="https://i.imgur.com/yITA8kh.png" width="768" />
 
 Authors
 -------
@@ -98,7 +98,7 @@ Authors
         coord_flip() + 
         theme_test()
 
-<img src="https://i.imgur.com/wKezYyn.png" width="768" />
+<img src="https://i.imgur.com/VFiLdXV.png" width="768" />
 
 Publication Years
 -----------------
@@ -128,7 +128,7 @@ Publication Years
              title = "Productivity as a function of year and status") + 
         expand_limits(y = c(0, year_max + 5))
 
-<img src="https://i.imgur.com/vE8MEja.png" width="768" />
+<img src="https://i.imgur.com/2YUoeBP.png" width="768" />
 
     unlink("cache", recursive = TRUE)
     unlink("figure", recursive = TRUE)
@@ -144,22 +144,29 @@ Already published
 -   Phonetica
 -   Journal of the Acoustical Society of America
 -   Journal of Phonetics
+-   Bilingualism: Language and Cognition
 
 Submitted
 ---------
 
 -   Language and Speech
--   Bilingualism: Language and Cognition
+-   Language Learning
 
 In prep
 -------
 
--   International Journal of Bilingualism
+-   Journal of Second Language Pronunciation
+
+On deck
+-------
+
+-   Studies in SLA (replication study)
 
 Wishlist
 --------
 
--   Applied Psycholinguistics
--   Studies in SLA
+-   Applied Psycholinguistics (10k)
+-   Studies in SLA (7k, replications = 6k)
 -   Heritage Language Journal
 -   Frontiers in Psychology
+-   International Journal of Bilingualism
