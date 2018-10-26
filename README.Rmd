@@ -1,5 +1,5 @@
 ---
-output: md_document
+output: github_document
 ---
 
 # mybib
@@ -15,9 +15,9 @@ This is **NOT** synchronized with my online CV (for the TODO list).
 ----
 
 
-```{r, 'timestamp', echo=FALSE}
-message(sprintf("Last Updated: %s", Sys.time()))
-```
+
+
+Last Updated: `r sprintf("%s", Sys.time())`
 
 License: Public Domain (CC-0)
 
@@ -29,6 +29,19 @@ I am still testing this. Initial commit is a direct copy of example done by
 library("knitr")
 opts_knit$set(upload.fun = imgur_upload, base.url = NULL)
 opts_chunk$set(fig.width=8, fig.height=5)
+
+my_theme <- function() {
+  theme_minimal() + 
+    theme(
+      plot.title = element_text(size = rel(1), face = "bold"), 
+      plot.subtitle = element_text(size = rel(0.9)),
+      plot.caption = element_text(color = "#777777", vjust = 0),
+      axis.title = element_text(size = rel(.9), hjust = 0.95, face = "italic"), 
+      panel.grid.major = element_line(size = rel(.1), color = "grey70"), 
+      panel.grid.minor = element_line(size = rel(.1), color = "grey70")
+    )
+}
+
 ```
 
 Here are some basic statistics on its contents:
@@ -62,7 +75,7 @@ counts %>%
     geom_text() + 
     labs(y = "Count", x = "Citation Type") + 
     coord_flip() + 
-    theme_test()
+    my_theme()
 ```
 
 ## Journals
@@ -82,7 +95,7 @@ dat %>%
     geom_text() + 
     labs(y = "Count", x = "Journal") + 
     coord_flip() + 
-    theme_test()
+    my_theme()
 ```
 
 ## Authors
@@ -111,7 +124,7 @@ authors %>%
     geom_text() + 
     labs(y = "Count", x = "Author") + 
     coord_flip() + 
-    theme_test()
+    my_theme()
 ```
 
 ## Publication Years
@@ -133,14 +146,15 @@ year_max <- max(prod$counts)
 prod %>% 
   ggplot(., aes(x = year, y = counts, label = counts)) + 
     geom_bar(stat = "identity", color = 'black', 
-             fill = 'lightblue', width = 0.1) + 
+             fill = 'black', width = 0.1) + 
     geom_point(aes(shape = status, fill = status), size = 10, color = 'black') + 
     scale_shape_manual(name = '', values = 21:23) + 
     geom_text(color = 'white') + 
     scale_fill_brewer(name = '', palette = 'Set1') + 
     labs(y = "Count", x = "Year", 
          title = "Productivity as a function of year and status") + 
-    expand_limits(y = c(0, year_max + 5))
+    expand_limits(y = c(0, year_max + 5)) + 
+    my_theme()
 ```
 
 
