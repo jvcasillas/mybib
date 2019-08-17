@@ -25,9 +25,16 @@ I am still testing this. Initial commit is a direct copy of example done by
 [leeper](https://github.com/leeper/references). 
 
 
-```{r, 'setup', echo=FALSE, results="hide"}
+```{r, 'setup', echo=FALSE, results="hide", warning=FALSE, message=FALSE}
+# Load some libraries
 library("knitr")
-opts_knit$set(upload.fun = imgur_upload, base.url = NULL)
+library("RefManageR")
+library("tidyverse")
+library("here")
+library("patchwork")
+library("scholar")
+
+# Plotting options
 opts_chunk$set(fig.width=8, fig.height=5)
 
 my_theme <- function() {
@@ -47,10 +54,6 @@ my_theme <- function() {
 Here are some basic statistics on its contents:
 
 ```{r, 'data', message=FALSE, warning=FALSE}
-library(RefManageR)
-library(tidyverse)
-library(here)
-
 bib <- suppressWarnings(ReadBib(here("publicationsCVclean.bib"), 
                                 check = FALSE))
 
@@ -64,13 +67,13 @@ dat <- bib %>%
 ## Citation Types
 
 ```{r, 'bibtype', fig.retina=2}
-counts <- xtabs(~bibtype, data = bib) %>% as.tibble
+counts <- xtabs(~bibtype, data = bib) %>% as_tibble
 
 counts %>% 
   mutate(., bibtype = fct_reorder(bibtype, n)) %>% 
   ggplot(., aes(x = bibtype, y = n, label = n)) + 
     geom_bar(stat = 'identity', color = 'black', 
-             fill = 'lightblue', width = 0.1) + 
+             fill = 'darkred', width = 0.1) + 
     geom_point(pch = 21, size = 10, color = 'black', fill = 'lightgrey') + 
     geom_text() + 
     labs(y = "Count", x = "Citation Type") + 
@@ -90,7 +93,7 @@ dat %>%
   mutate(., journal = fct_reorder(journal, counts)) %>% 
   ggplot(., aes(x = journal, y = counts, label = counts)) + 
     geom_bar(stat = "identity", color = 'black', 
-             fill = 'lightblue', width = 0.1) + 
+             fill = 'darkred', width = 0.1) + 
     geom_point(pch = 21, size = 10, color = 'black', fill = 'lightgrey') + 
     geom_text() + 
     labs(y = "Count", x = "Journal") + 
@@ -113,13 +116,13 @@ for (i in 1:length(bib)) {
 # Convert to tibble and plot
 authors %>% 
   unlist(.) %>% 
-  as.tibble(.) %>% 
+  enframe(.) %>% 
   group_by(., value) %>% 
   summarize(., counts = n()) %>% 
   mutate(., value = fct_reorder(value, counts)) %>% 
   ggplot(., aes(x = value, y = counts, label = counts)) + 
     geom_bar(stat = "identity", color = 'black', 
-             fill = 'lightblue', width = 0.1) + 
+             fill = 'darkred', width = 0.1) + 
     geom_point(pch = 21, size = 10, color = 'black', fill = 'lightgrey') + 
     geom_text() + 
     labs(y = "Count", x = "Author") + 
@@ -157,40 +160,75 @@ prod %>%
     my_theme()
 ```
 
+# Google scholar data
+
 ## H-index stuff
 
 ```{r, 'google-scholar'}
-
-# Load package
-library("scholar")
-
 # Include ID
 my_id <- "6sd7cVAAAAAJ"
+ms_id <- "GnYMTI8AAAAJ"
 
 # Get h-index and citation history
-my_h <- predict_h_index(my_id)
-my_c <- get_citation_history(my_id)
+my_h <- predict_h_index(my_id) %>% mutate(author = "jvc")
+my_c <- get_citation_history(my_id) %>% mutate(author = "jvc")
+
+# Game same info for MS
+ms_h <- predict_h_index(ms_id) %>% mutate(author = "ms")
+ms_c <- get_citation_history(ms_id) %>% mutate(author = "ms")
 ```
 
 My current h-index is `r my_h[1, 2]`. 
-I don't really know what this means (yet), but I can preduct how this will grow 
+I don't really know what this means (yet), but I can predict how this will grow 
 over the next ten years. 
 
 ```{r, 'h-plot', fig.retina=2}
 my_h %>% 
   ggplot(., aes(x = years_ahead, y = h_index)) + 
+    geom_hline(yintercept = ms_h[1, 2], lty = 3) + 
     geom_path() + 
     geom_point(pch = 24, fill = "grey90", size = 3) + 
-    ylim(0, 30) + 
+    ylim(0, max(my_h$h_index) + 5) + 
     my_theme()
-
 ```
 
 So it looks like I can plan on my h-index improving, but I have no context 
 (yet) for what this means. 
-I would like to add a few influential people to the plot to see when I currently 
-fit in in relation to them and where I would (theoretically) need to be and 
-by when in order to emulate their career. 
+I would like to add a few influential people to the plot to see where I 
+currently fit in in relation to them. 
+This might be a useful metric for setting goals. 
+
+```{r, 'compare-h', fig.retina=2}
+# Plot h-index side by side
+h_index_1 <- bind_rows(my_h, ms_h) %>% 
+  ggplot(., aes(x = years_ahead, y = h_index, color = author)) + 
+    geom_path() + 
+    geom_point(pch = 24, fill = "grey90", size = 3) + 
+    scale_color_viridis_d(option = "C", end = 0.4) + 
+    labs(title = "Comparison of h-index", 
+         subtitle = "Predicted h-index values over 10 years.") + 
+    my_theme() + 
+    theme(legend.position = c(0.15, 0.88))
+
+# Fit a model and plot trajectories
+combined_h <- bind_rows(my_h, ms_h) %>% 
+  spread(author, h_index)
+coefs <- lm(ms ~ jvc, data = combined_h) %>% coef
+
+h_index_2 <- combined_h %>% 
+  ggplot(., aes(x = jvc, y = ms)) + 
+    geom_abline(intercept = coefs[1], slope = coefs[2], lty = 3) + 
+    geom_path() + 
+    geom_point(pch = 24, fill = "grey90", size = 3) + 
+    my_theme()
+
+h_index_1 + h_index_2
+```
+
+So it looks like MS has an overall higher h-index and the function shows us 
+as having more or less similar growth over time. 
+
+## Citations
 
 Now I will take a look at my citation history. 
 
@@ -203,9 +241,23 @@ my_c %>%
     my_theme()
 ```
 
-It looks like 2017 was a good year for getting cited. 
+It looks like 2017 was my best year for getting cited. 
 
+Let's plot this in comparison to MS. 
 
+```{r 'combined-citations', fig.retina=2}
+bind_rows(my_c, ms_c) %>% 
+  ggplot(., aes(x = year, y = cites, color = author)) + 
+    geom_path() + 
+    geom_point(pch = 24, size = 3, fill = "grey90") + 
+    coord_cartesian(ylim = c(0, max(ms_c$cites) + 20)) + 
+    scale_color_viridis_d(option = "C", end = 0.4) + 
+    my_theme()
+```
+
+Both MS and I had bumps in year 5, but they aren't even remotely comparable. 😳
+
+----
 
 # Journals
 
@@ -226,10 +278,11 @@ It looks like 2017 was a good year for getting cited.
 
 ## In prep
 
-- Journal of Second Language Pronunciation
+- Language learning
 
 ## On deck
 
+- Journal of Second Language Pronunciation
 - International Journal of Bilingualism
 
 
@@ -237,7 +290,7 @@ It looks like 2017 was a good year for getting cited.
 
 - Applied Psycholinguistics (10k)
 - Heritage Language Journal
-- Frontiers in Psychology
-
+- Linguistic approaches to bilingualism 
+- Laboratory phonology
 
 

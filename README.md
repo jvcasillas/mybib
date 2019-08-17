@@ -11,7 +11,7 @@ This is **NOT** synchronized with my online CV (for the TODO list).
 
 -----
 
-Last Updated: 2019-08-17 06:09:27
+Last Updated: 2019-08-17 07:03:09
 
 License: Public Domain (CC-0)
 
@@ -21,10 +21,6 @@ by [leeper](https://github.com/leeper/references).
 Here are some basic statistics on its contents:
 
 ``` r
-library(RefManageR)
-library(tidyverse)
-library(here)
-
 bib <- suppressWarnings(ReadBib(here("publicationsCVclean.bib"), 
                                 check = FALSE))
 
@@ -36,18 +32,13 @@ dat <- bib %>%
 ## Citation Types
 
 ``` r
-counts <- xtabs(~bibtype, data = bib) %>% as.tibble
-```
+counts <- xtabs(~bibtype, data = bib) %>% as_tibble
 
-    ## Warning: `as.tibble()` is deprecated, use `as_tibble()` (but mind the new semantics).
-    ## This warning is displayed once per session.
-
-``` r
 counts %>% 
   mutate(., bibtype = fct_reorder(bibtype, n)) %>% 
   ggplot(., aes(x = bibtype, y = n, label = n)) + 
     geom_bar(stat = 'identity', color = 'black', 
-             fill = 'lightblue', width = 0.1) + 
+             fill = 'darkred', width = 0.1) + 
     geom_point(pch = 21, size = 10, color = 'black', fill = 'lightgrey') + 
     geom_text() + 
     labs(y = "Count", x = "Citation Type") + 
@@ -55,7 +46,7 @@ counts %>%
     my_theme()
 ```
 
-<img src="https://i.imgur.com/faRsLup.png" width="768" />
+<img src="README_files/figure-gfm/bibtype-1.png" width="768" />
 
 ## Journals
 
@@ -69,7 +60,7 @@ dat %>%
   mutate(., journal = fct_reorder(journal, counts)) %>% 
   ggplot(., aes(x = journal, y = counts, label = counts)) + 
     geom_bar(stat = "identity", color = 'black', 
-             fill = 'lightblue', width = 0.1) + 
+             fill = 'darkred', width = 0.1) + 
     geom_point(pch = 21, size = 10, color = 'black', fill = 'lightgrey') + 
     geom_text() + 
     labs(y = "Count", x = "Journal") + 
@@ -77,7 +68,7 @@ dat %>%
     my_theme()
 ```
 
-<img src="https://i.imgur.com/SHojI5y.png" width="768" />
+<img src="README_files/figure-gfm/journal-1.png" width="768" />
 
 ## Authors
 
@@ -94,13 +85,13 @@ for (i in 1:length(bib)) {
 # Convert to tibble and plot
 authors %>% 
   unlist(.) %>% 
-  as.tibble(.) %>% 
+  enframe(.) %>% 
   group_by(., value) %>% 
   summarize(., counts = n()) %>% 
   mutate(., value = fct_reorder(value, counts)) %>% 
   ggplot(., aes(x = value, y = counts, label = counts)) + 
     geom_bar(stat = "identity", color = 'black', 
-             fill = 'lightblue', width = 0.1) + 
+             fill = 'darkred', width = 0.1) + 
     geom_point(pch = 21, size = 10, color = 'black', fill = 'lightgrey') + 
     geom_text() + 
     labs(y = "Count", x = "Author") + 
@@ -108,7 +99,7 @@ authors %>%
     my_theme()
 ```
 
-<img src="https://i.imgur.com/PNzGdpZ.png" width="768" />
+<img src="README_files/figure-gfm/authors-1.png" width="768" />
 
 ## Publication Years
 
@@ -140,47 +131,79 @@ prod %>%
     my_theme()
 ```
 
-<img src="https://i.imgur.com/gu2AXvP.png" width="768" />
+<img src="README_files/figure-gfm/year-1.png" width="768" />
+
+# Google scholar data
 
 ## H-index stuff
 
 ``` r
-# Load package
-library("scholar")
-```
-
-    ## Registered S3 method overwritten by 'R.oo':
-    ##   method        from       
-    ##   throw.default R.methodsS3
-
-``` r
 # Include ID
 my_id <- "6sd7cVAAAAAJ"
+ms_id <- "GnYMTI8AAAAJ"
 
 # Get h-index and citation history
-my_h <- predict_h_index(my_id)
-my_c <- get_citation_history(my_id)
+my_h <- predict_h_index(my_id) %>% mutate(author = "jvc")
+my_c <- get_citation_history(my_id) %>% mutate(author = "jvc")
+
+# Game same info for MS
+ms_h <- predict_h_index(ms_id) %>% mutate(author = "ms")
+ms_c <- get_citation_history(ms_id) %>% mutate(author = "ms")
 ```
 
 My current h-index is 4. I don’t really know what this means (yet), but
-I can preduct how this will grow over the next ten years.
+I can predict how this will grow over the next ten years.
 
 ``` r
 my_h %>% 
   ggplot(., aes(x = years_ahead, y = h_index)) + 
+    geom_hline(yintercept = ms_h[1, 2], lty = 3) + 
     geom_path() + 
     geom_point(pch = 24, fill = "grey90", size = 3) + 
-    ylim(0, 30) + 
+    ylim(0, max(my_h$h_index) + 5) + 
     my_theme()
 ```
 
-<img src="https://i.imgur.com/ZuqGINd.png" width="768" />
+<img src="README_files/figure-gfm/h-plot-1.png" width="768" />
 
 So it looks like I can plan on my h-index improving, but I have no
 context (yet) for what this means. I would like to add a few influential
-people to the plot to see when I currently fit in in relation to them
-and where I would (theoretically) need to be and by when in order to
-emulate their career.
+people to the plot to see where I currently fit in in relation to them.
+This might be a useful metric for setting goals.
+
+``` r
+# Plot h-index side by side
+h_index_1 <- bind_rows(my_h, ms_h) %>% 
+  ggplot(., aes(x = years_ahead, y = h_index, color = author)) + 
+    geom_path() + 
+    geom_point(pch = 24, fill = "grey90", size = 3) + 
+    scale_color_viridis_d(option = "C", end = 0.4) + 
+    labs(title = "Comparison of h-index", 
+         subtitle = "Predicted h-index values over 10 years.") + 
+    my_theme() + 
+    theme(legend.position = c(0.15, 0.88))
+
+# Fit a model and plot trajectories
+combined_h <- bind_rows(my_h, ms_h) %>% 
+  spread(author, h_index)
+coefs <- lm(ms ~ jvc, data = combined_h) %>% coef
+
+h_index_2 <- combined_h %>% 
+  ggplot(., aes(x = jvc, y = ms)) + 
+    geom_abline(intercept = coefs[1], slope = coefs[2], lty = 3) + 
+    geom_path() + 
+    geom_point(pch = 24, fill = "grey90", size = 3) + 
+    my_theme()
+
+h_index_1 + h_index_2
+```
+
+<img src="README_files/figure-gfm/compare-h-1.png" width="768" />
+
+So it looks like MS has an overall higher h-index and the function shows
+us as having more or less similar growth over time.
+
+## Citations
 
 Now I will take a look at my citation history.
 
@@ -193,9 +216,28 @@ my_c %>%
     my_theme()
 ```
 
-<img src="https://i.imgur.com/bWhJNdQ.png" width="768" />
+<img src="README_files/figure-gfm/citation-history-1.png" width="768" />
 
-It looks like 2017 was a good year for getting cited.
+It looks like 2017 was my best year for getting cited.
+
+Let’s plot this in comparison to MS.
+
+``` r
+bind_rows(my_c, ms_c) %>% 
+  ggplot(., aes(x = year, y = cites, color = author)) + 
+    geom_path() + 
+    geom_point(pch = 24, size = 3, fill = "grey90") + 
+    coord_cartesian(ylim = c(0, max(ms_c$cites) + 20)) + 
+    scale_color_viridis_d(option = "C", end = 0.4) + 
+    my_theme()
+```
+
+<img src="README_files/figure-gfm/combined-citations-1.png" width="768" />
+
+Both MS and I had bumps in year 5, but they aren’t even remotely
+comparable. 😳
+
+-----
 
 # Journals
 
@@ -216,14 +258,16 @@ It looks like 2017 was a good year for getting cited.
 
 ## In prep
 
-  - Journal of Second Language Pronunciation
+  - Language learning
 
 ## On deck
 
+  - Journal of Second Language Pronunciation
   - International Journal of Bilingualism
 
 ## Wishlist
 
   - Applied Psycholinguistics (10k)
   - Heritage Language Journal
-  - Frontiers in Psychology
+  - Linguistic approaches to bilingualism
+  - Laboratory phonology
