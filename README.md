@@ -4,14 +4,14 @@
 Version controlled .bib file for my articles, proceedings,
 presentations, posters, and workshops.
 
-This is a ‘clean’ version. It only contains UTF-8 chars (i.e. no
+This is a ‘clean’ version. It only contains UTF-8 chars (i.e.  no
 `tipa`).
 
 This is **NOT** synchronized with my online CV (for the TODO list).
 
 -----
 
-Last Updated: 2018-10-26 10:28:44
+Last Updated: 2019-08-17 06:09:27
 
 License: Public Domain (CC-0)
 
@@ -29,7 +29,7 @@ bib <- suppressWarnings(ReadBib(here("publicationsCVclean.bib"),
                                 check = FALSE))
 
 dat <- bib %>% 
-  as.tibble(.) %>% 
+  as_tibble(.) %>% 
   mutate(., year = as.numeric(year))
 ```
 
@@ -37,7 +37,12 @@ dat <- bib %>%
 
 ``` r
 counts <- xtabs(~bibtype, data = bib) %>% as.tibble
+```
 
+    ## Warning: `as.tibble()` is deprecated, use `as_tibble()` (but mind the new semantics).
+    ## This warning is displayed once per session.
+
+``` r
 counts %>% 
   mutate(., bibtype = fct_reorder(bibtype, n)) %>% 
   ggplot(., aes(x = bibtype, y = n, label = n)) + 
@@ -50,7 +55,7 @@ counts %>%
     my_theme()
 ```
 
-<img src="https://i.imgur.com/6NKb0KY.png" width="768" />
+<img src="https://i.imgur.com/faRsLup.png" width="768" />
 
 ## Journals
 
@@ -72,7 +77,7 @@ dat %>%
     my_theme()
 ```
 
-<img src="https://i.imgur.com/PfE1u1U.png" width="768" />
+<img src="https://i.imgur.com/SHojI5y.png" width="768" />
 
 ## Authors
 
@@ -103,7 +108,7 @@ authors %>%
     my_theme()
 ```
 
-<img src="https://i.imgur.com/FE4gkHF.png" width="768" />
+<img src="https://i.imgur.com/PNzGdpZ.png" width="768" />
 
 ## Publication Years
 
@@ -135,7 +140,62 @@ prod %>%
     my_theme()
 ```
 
-<img src="https://i.imgur.com/SamJAse.png" width="768" />
+<img src="https://i.imgur.com/gu2AXvP.png" width="768" />
+
+## H-index stuff
+
+``` r
+# Load package
+library("scholar")
+```
+
+    ## Registered S3 method overwritten by 'R.oo':
+    ##   method        from       
+    ##   throw.default R.methodsS3
+
+``` r
+# Include ID
+my_id <- "6sd7cVAAAAAJ"
+
+# Get h-index and citation history
+my_h <- predict_h_index(my_id)
+my_c <- get_citation_history(my_id)
+```
+
+My current h-index is 4. I don’t really know what this means (yet), but
+I can preduct how this will grow over the next ten years.
+
+``` r
+my_h %>% 
+  ggplot(., aes(x = years_ahead, y = h_index)) + 
+    geom_path() + 
+    geom_point(pch = 24, fill = "grey90", size = 3) + 
+    ylim(0, 30) + 
+    my_theme()
+```
+
+<img src="https://i.imgur.com/ZuqGINd.png" width="768" />
+
+So it looks like I can plan on my h-index improving, but I have no
+context (yet) for what this means. I would like to add a few influential
+people to the plot to see when I currently fit in in relation to them
+and where I would (theoretically) need to be and by when in order to
+emulate their career.
+
+Now I will take a look at my citation history.
+
+``` r
+my_c %>% 
+  ggplot(., aes(x = year, y = cites)) + 
+    geom_path() + 
+    geom_point(pch = 24, fill = "grey90", size = 3) + 
+    ylim(0, 30) + 
+    my_theme()
+```
+
+<img src="https://i.imgur.com/bWhJNdQ.png" width="768" />
+
+It looks like 2017 was a good year for getting cited.
 
 # Journals
 
@@ -147,11 +207,12 @@ prod %>%
   - Journal of the Acoustical Society of America
   - Journal of Phonetics
   - Bilingualism: Language and Cognition
+  - Language and Speech
 
 ## Submitted
 
-  - Language and Speech
   - Language Learning
+  - Studies in SLA (replication study)
 
 ## In prep
 
@@ -159,12 +220,10 @@ prod %>%
 
 ## On deck
 
-  - Studies in SLA (replication study)
+  - International Journal of Bilingualism
 
 ## Wishlist
 
   - Applied Psycholinguistics (10k)
-  - Studies in SLA (7k, replications = 6k)
   - Heritage Language Journal
   - Frontiers in Psychology
-  - International Journal of Bilingualism
