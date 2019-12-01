@@ -11,7 +11,7 @@ This is **NOT** synchronized with my online CV (for the TODO list).
 
 -----
 
-Last Updated: 2019-08-22 12:27:57
+Last Updated: 2019-12-01 11:57:25
 
 License: Public Domain (CC-0)
 
@@ -111,11 +111,14 @@ prod <- dat %>%
   summarize(., counts = n()) %>% 
   ungroup(.) %>% 
   mutate(., status = if_else(year <=2012, 'MA\nStudent', 
-                             if_else(year <=2016, 'PhD\nStudent', 'Asst.\nProf')), 
+                             if_else(year <=2016, 'PhD\nStudent', 
+                                     'Asst.\nProf')), 
             status = fct_relevel(status, 
-                                 c('MA\nStudent', 'PhD\nStudent', 'Asst.\nProf')))
+                                 c('MA\nStudent', 'PhD\nStudent', 
+                                   'Asst.\nProf')))
 
 year_max <- max(prod$counts)
+year_current <- prod$year %>% unique %>% max
 
 prod %>% 
   ggplot(., aes(x = year, y = counts, label = counts)) + 
@@ -123,6 +126,7 @@ prod %>%
              fill = 'black', width = 0.1) + 
     geom_point(aes(shape = status, fill = status), size = 10, color = 'black') + 
     scale_shape_manual(name = '', values = 21:23) + 
+    scale_x_continuous(breaks = seq(2009, year_current, 2)) + 
     geom_text(color = 'white') + 
     scale_fill_brewer(name = '', palette = 'Set1') + 
     labs(y = "Count", x = "Year", 
@@ -151,7 +155,7 @@ ms_h <- predict_h_index(ms_id) %>% mutate(author = "ms")
 ms_c <- get_citation_history(ms_id) %>% mutate(author = "ms")
 ```
 
-My current h-index is 4. I don’t really know what this means (yet), but
+My current h-index is 5. I don’t really know what this means (yet), but
 I can predict how this will grow over the next ten years.
 
 ``` r
@@ -218,7 +222,7 @@ my_c %>%
 
 <img src="README_files/figure-gfm/citation-history-1.png" width="768" />
 
-It looks like 2017 was my best year for getting cited.
+It looks like 2019 is now my best year for getting cited.
 
 Let’s plot this in comparison to MS.
 
@@ -241,7 +245,7 @@ comparable. 😳
 
 # Journals
 
-## Already published
+## Already published or accepted
 
   - Journal of Second Language Studies
   - Second Language Research
@@ -250,10 +254,10 @@ comparable. 😳
   - Journal of Phonetics
   - Bilingualism: Language and Cognition
   - Language and Speech
+  - Language Learning
 
 ## Submitted
 
-  - Language Learning
   - Studies in SLA (replication study)
 
 ## In prep
