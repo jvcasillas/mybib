@@ -11,7 +11,7 @@ This is **NOT** synchronized with my online CV (for the TODO list).
 
 -----
 
-Last Updated: 2019-12-01 12:08:17
+Last Updated: 2019-12-04 19:41:38
 
 License: Public Domain (CC-0)
 
@@ -21,12 +21,14 @@ by [leeper](https://github.com/leeper/references).
 Here are some basic statistics on its contents:
 
 ``` r
-bib <- suppressWarnings(ReadBib(here("publicationsCVclean.bib"), 
+bib <- suppressWarnings(ReadBib(here("publications_html.bib"), 
                                 check = FALSE))
+
 
 dat <- bib %>% 
   as_tibble(.) %>% 
-  mutate(., year = as.numeric(year))
+  map_df(.f = HTMLdecode) %>% 
+  mutate(year = as.numeric(year))
 ```
 
 ## Citation Types
@@ -83,7 +85,7 @@ for (i in 1:length(bib)) {
 }
 
 # Convert to tibble and plot
-authors %>% 
+map(authors, HTMLdecode) %>% 
   unlist(.) %>% 
   enframe(.) %>% 
   group_by(., value) %>% 
