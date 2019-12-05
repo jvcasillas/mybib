@@ -2,28 +2,6 @@
 output: github_document
 ---
 
-# mybib
-
-Version controlled .bib file for my articles, proceedings, 
-presentations, posters, and workshops.
-
-This is a 'clean' version. It only contains UTF-8 chars (i.e. 
-no ```tipa```).
-
-This is **NOT** synchronized with my online CV (for the TODO list).
-
-----
-
-
-
-
-Last Updated: `r sprintf("%s", Sys.time())`
-
-License: Public Domain (CC-0)
-
-I am still testing this. Initial commit is a direct copy of example done by 
-[leeper](https://github.com/leeper/references). 
-
 
 ```{r, 'setup', echo=FALSE, results="hide", warning=FALSE, message=FALSE}
 # Load some libraries
@@ -52,19 +30,57 @@ my_theme <- function() {
 
 ```
 
-Here are some basic statistics on its contents:
+# mybib
+
+**Last Updated**: `r sprintf("%s", Sys.time())`  
+**License**: Public Domain (CC-0)
+
+Version controlled .bib files for my scholarly work, as well as some light 
+analyses and a complete reference list.
+
+This repo now includes two main bib files: 
+__publications_html.bib__ and __publications_latex.bib__. 
+
+I call these files in to other projects (e.g., cv, personal website) when I 
+want to print a list of references. 
+
+Initial commit is a direct copy of example done by 
+[leeper](https://github.com/leeper/references). 
+
+----
+
+
+
+
+
+Load bibs and generate some useful files and dataframes: 
 
 ```{r, 'data', message=FALSE, warning=FALSE}
+# Load bib
 bib <- suppressWarnings(ReadBib(here("publications_html.bib"), 
                                 check = FALSE))
 
+# Create csv of citekeys
+cite_key_list <- bind_cols(
+  bib$key %>% unlist %>% tibble::enframe(name = NULL), 
+  bib$bibtype %>% unlist %>% tibble::enframe(name = NULL), 
+  bib$year %>% unlist %>% tibble::enframe(name = NULL)
+  ) %>% 
+  rename(citekey = value, type = value1, year = value2) %>% 
+  write_csv(here("cite_key_list.csv"))
 
+# Set bib opions for printing
+BibOptions(bib.style = "authoryear", style = "text", max.names = 10, 
+           first.inits = TRUE, check.entries = FALSE)
+
+# Convert to dataframe for analyses
 dat <- bib %>% 
   as_tibble(.) %>% 
   map_df(.f = HTMLdecode) %>% 
   mutate(year = as.numeric(year))
 ```
 
+And now some basic statistics on its contents:
 
 
 ## Citation Types
@@ -300,3 +316,29 @@ Both MS and I had bumps in year 5, but they aren't even remotely comparable. ðŸ˜
 - Linguistic approaches to bilingualism 
 - Laboratory phonology
 
+----
+
+# My references (testing)
+
+## Articles
+
+```{r, warning=F, results='asis', echo=T}
+
+# Printer function for refs
+ref_printer <- function(pubs) {
+  
+  for (i in pubs) {
+    print(bib[key = i]); cat("\n")
+  }
+  
+}
+
+```
+
+```{r, eval=T, results='asis', echo=T}
+# Filter citekey dataframe, convert to vector and use to subset bib
+filter(cite_key_list, type == "Article") %>% 
+  arrange(desc(year) )%>% 
+  pull(citekey) %>% 
+  ref_printer
+```

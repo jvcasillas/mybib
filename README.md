@@ -1,35 +1,51 @@
 
 # mybib
 
-Version controlled .bib file for my articles, proceedings,
-presentations, posters, and workshops.
+**Last Updated**: 2019-12-04 22:58:20  
+**License**: Public Domain (CC-0)
 
-This is a ‘clean’ version. It only contains UTF-8 chars (i.e.  no
-`tipa`).
+Version controlled .bib files for my scholarly work, as well as some
+light analyses and a complete reference list.
 
-This is **NOT** synchronized with my online CV (for the TODO list).
+This repo now includes two main bib files: **publications\_html.bib**
+and **publications\_latex.bib**.
+
+I call these files in to other projects (e.g., cv, personal website)
+when I want to print a list of references.
+
+Initial commit is a direct copy of example done by
+[leeper](https://github.com/leeper/references).
 
 -----
 
-Last Updated: 2019-12-04 19:41:38
-
-License: Public Domain (CC-0)
-
-I am still testing this. Initial commit is a direct copy of example done
-by [leeper](https://github.com/leeper/references).
-
-Here are some basic statistics on its contents:
+Load bibs and generate some useful files and dataframes:
 
 ``` r
+# Load bib
 bib <- suppressWarnings(ReadBib(here("publications_html.bib"), 
                                 check = FALSE))
 
+# Create csv of citekeys
+cite_key_list <- bind_cols(
+  bib$key %>% unlist %>% tibble::enframe(name = NULL), 
+  bib$bibtype %>% unlist %>% tibble::enframe(name = NULL), 
+  bib$year %>% unlist %>% tibble::enframe(name = NULL)
+  ) %>% 
+  rename(citekey = value, type = value1, year = value2) %>% 
+  write_csv(here("cite_key_list.csv"))
 
+# Set bib opions for printing
+BibOptions(bib.style = "authoryear", style = "text", max.names = 10, 
+           first.inits = TRUE, check.entries = FALSE)
+
+# Convert to dataframe for analyses
 dat <- bib %>% 
   as_tibble(.) %>% 
   map_df(.f = HTMLdecode) %>% 
   mutate(year = as.numeric(year))
 ```
+
+And now some basic statistics on its contents:
 
 ## Citation Types
 
@@ -277,3 +293,87 @@ comparable. 😳
   - Heritage Language Journal
   - Linguistic approaches to bilingualism
   - Laboratory phonology
+
+-----
+
+# My references (testing)
+
+## Articles
+
+``` r
+# Printer function for refs
+ref_printer <- function(pubs) {
+  
+  for (i in pubs) {
+    print(bib[key = i]); cat("\n")
+  }
+  
+}
+```
+
+``` r
+# Filter citekey dataframe, convert to vector and use to subset bib
+filter(cite_key_list, type == "Article") %>% 
+  arrange(desc(year) )%>% 
+  pull(citekey) %>% 
+  ref_printer
+```
+
+Casillas, J. V. “The longitudinal development of fine-phonetic detail:
+Stop production in a domestic immersion program”. In: *Language
+Learning*.
+
+Lozano-Argüelles, C, N. Sagarra, and J. V. Casillas “Slowly but surely:
+Interpreting facilitates L2 morphological anticipation based on
+suprasegmental and segmental information”. In: *Bilingualism: Language
+and Cognition*. DOI: <https://doi.org/10.1017/S1366728919000634>.
+
+Casillas, J. V. “Phonetic category formation is perceptually driven
+during the early stages of adult L2 development”. In: *Language and
+Speech*. DOI: <https://doi.org/10.1177/0023830919866225>.
+
+Casillas, J. V. and M. Simonet (2018). “Perceptual categorization and
+bilingual language modes: Assessing the double phonemic boundary in
+early and late bilinguals”. In: *Journal of Phonetics* 71, pp. 51-64.
+DOI: <https://doi.org/10.1016/j.wocn.2018.07.002>.
+
+Sagarra, N. and J. V. Casillas (2018). “Suprasegmental information cues
+morphological anticipation during L1/L2 lexical access”. In: *Journal of
+Second Language Studies* 1.1, pp. 31-59. DOI:
+<https://doi.org/10.1075/jsls.17026.sag>.
+
+Bessett, R. M, J. V. Casillas, and M. Ramírez Martínez (2017). “Language
+choice and accommodation: Casual encounters in San Ysidro and Nogales”.
+In: *Spanish in Context* 14.1, pp. 78-98. DOI:
+<https://doi.org/10.1075/sic.14.1.04bes>.
+
+Casillas, J. V. (2017). “Reseña de Lacorte, Manel. 2014. The Routledge
+Handbook of Hispanic Applied Linguistics. New York: Routledge.” In:
+*Infoling* 2.43. \<URL:
+<http://infoling.org/informacion/Review230.htm>\>.
+
+Llompart, M. and J. V. Casillas (2016). “Lexically driven selective
+adaptation by ambiguous auditory stimuli occurs after limited exposure
+to adaptors”. In: *Journal of the Acoustical Society of America* 139.5,
+pp. EL172-EL177. DOI: <https://doi.org/10.1121/1.4951704>.
+
+Casillas, J. V. and M. Simonet (2016). “Production and perception of the
+English /æ/-/ɑ/ contrast in switched-dominance speakers”. In: *Second
+Language Research* 32.2, pp. 171-195. DOI:
+<https://doi.org/10.1177/0267658315608912>.
+
+Casillas, J. V. (2015). “Production and perception of the /i/-/ɪ/ vowel
+contrast: The case of L2-dominant early learners of English”. In:
+*Phonetica* 72.2-3, pp. 182-205. DOI:
+<https://doi.org/10.1159/000431101>.
+
+Casillas, J. V. (2012). “La fricativización del africado /tʃ/ en el
+habla de las mujeres del sur de Arizona”. In: *Divergencias: Revista de
+estudios lingüísticos y literarios* 10.1, pp. 56-70.
+
+Casillas, J. V. (2010). “La vibrante múltiple intervocálica: los
+ejercicios de canto como ayuda a su pronunciación en español”. In: *La
+Gaceta Hispánica de Madrid* VIII. ISSN: 1886-1741.
+
+Casillas, J. V. (2009). “El uso de los refranes en El Quijote”. In: *La
+Gaceta Hispánica de Madrid* VIII. ISSN: 1886-1741.
