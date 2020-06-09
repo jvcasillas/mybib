@@ -1,7 +1,7 @@
 
 # mybib
 
-**Last Updated**: 2019-12-04 22:58:20  
+**Last Updated**: 2020-06-09 07:38:05  
 **License**: Public Domain (CC-0)
 
 Version controlled .bib files for my scholarly work, as well as some
@@ -31,7 +31,7 @@ cite_key_list <- bind_cols(
   bib$bibtype %>% unlist %>% tibble::enframe(name = NULL), 
   bib$year %>% unlist %>% tibble::enframe(name = NULL)
   ) %>% 
-  rename(citekey = value, type = value1, year = value2) %>% 
+  rename(citekey = value...1, type = value...2, year = value...3) %>% 
   write_csv(here("cite_key_list.csv"))
 
 # Set bib opions for printing
@@ -86,6 +86,8 @@ dat %>%
     my_theme()
 ```
 
+    ## `summarise()` ungrouping output (override with `.groups` argument)
+
 <img src="README_files/figure-gfm/journal-1.png" width="768" />
 
 ## Authors
@@ -117,6 +119,8 @@ map(authors, HTMLdecode) %>%
     my_theme()
 ```
 
+    ## `summarise()` ungrouping output (override with `.groups` argument)
+
 <img src="README_files/figure-gfm/authors-1.png" width="768" />
 
 ## Publication Years
@@ -134,7 +138,11 @@ prod <- dat %>%
             status = fct_relevel(status, 
                                  c('MA\nStudent', 'PhD\nStudent', 
                                    'Asst.\nProf')))
+```
 
+    ## `summarise()` ungrouping output (override with `.groups` argument)
+
+``` r
 year_max <- max(prod$counts)
 year_current <- prod$year %>% unique %>% max
 
@@ -164,6 +172,8 @@ prod %>%
 my_id <- "6sd7cVAAAAAJ"
 ms_id <- "GnYMTI8AAAAJ"
 
+miguel <- "12mgD38AAAAJ"
+
 # Get h-index and citation history
 my_h <- predict_h_index(my_id) %>% mutate(author = "jvc")
 my_c <- get_citation_history(my_id) %>% mutate(author = "jvc")
@@ -171,6 +181,9 @@ my_c <- get_citation_history(my_id) %>% mutate(author = "jvc")
 # Game same info for MS
 ms_h <- predict_h_index(ms_id) %>% mutate(author = "ms")
 ms_c <- get_citation_history(ms_id) %>% mutate(author = "ms")
+
+mj_h <- predict_h_index(miguel) %>% mutate(author = "miguel")
+mj_c <- get_citation_history(miguel) %>% mutate(author = "miguel")
 ```
 
 My current h-index is 5. I don’t really know what this means (yet), but
@@ -188,6 +201,18 @@ my_h %>%
 
 <img src="README_files/figure-gfm/h-plot-1.png" width="768" />
 
+``` r
+ms_h %>% 
+  ggplot(., aes(x = years_ahead, y = h_index)) + 
+    geom_hline(yintercept = ms_h[1, 2], lty = 3) + 
+    geom_path() + 
+    geom_point(pch = 24, fill = "grey90", size = 3) + 
+    ylim(0, max(mj_h$h_index) + 5) + 
+    my_theme()
+```
+
+<img src="README_files/figure-gfm/h-plot-2.png" width="768" />
+
 So it looks like I can plan on my h-index improving, but I have no
 context (yet) for what this means. I would like to add a few influential
 people to the plot to see where I currently fit in in relation to them.
@@ -195,7 +220,7 @@ This might be a useful metric for setting goals.
 
 ``` r
 # Plot h-index side by side
-h_index_1 <- bind_rows(my_h, ms_h) %>% 
+h_index_1 <- bind_rows(my_h, ms_h, mj_h) %>% 
   ggplot(., aes(x = years_ahead, y = h_index, color = author)) + 
     geom_path() + 
     geom_point(pch = 24, fill = "grey90", size = 3) + 
@@ -240,16 +265,27 @@ my_c %>%
 
 <img src="README_files/figure-gfm/citation-history-1.png" width="768" />
 
+``` r
+ms_c %>% 
+  ggplot(., aes(x = year, y = cites)) + 
+    geom_path() + 
+    geom_point(pch = 24, fill = "grey90", size = 3) + 
+    ylim(0, 250) + 
+    my_theme()
+```
+
+<img src="README_files/figure-gfm/citation-history-2.png" width="768" />
+
 It looks like 2019 is now my best year for getting cited.
 
 Let’s plot this in comparison to MS.
 
 ``` r
-bind_rows(my_c, ms_c) %>% 
+bind_rows(my_c, ms_c, mj_c) %>% 
   ggplot(., aes(x = year, y = cites, color = author)) + 
     geom_path() + 
     geom_point(pch = 24, size = 3, fill = "grey90") + 
-    coord_cartesian(ylim = c(0, max(ms_c$cites) + 20)) + 
+    coord_cartesian(ylim = c(0, max(mj_c$cites) + 20)) + 
     scale_color_viridis_d(option = "C", end = 0.4) + 
     my_theme()
 ```
@@ -273,13 +309,14 @@ comparable. 😳
   - Bilingualism: Language and Cognition
   - Language and Speech
   - Language Learning
+  - Studies in SLA (replication study)
 
 ## Submitted
 
-  - Studies in SLA (replication study)
-
 ## In prep
 
+  - JASA
+  - Languages
   - Language learning
 
 ## On deck
