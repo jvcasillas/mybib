@@ -1,7 +1,7 @@
 
 # mybib
 
-**Last Updated**: 2020-06-09 07:38:05  
+**Last Updated**: 2020-09-08 15:20:05  
 **License**: Public Domain (CC-0)
 
 Version controlled .bib files for my scholarly work, as well as some
@@ -152,7 +152,7 @@ prod %>%
              fill = 'black', width = 0.1) + 
     geom_point(aes(shape = status, fill = status), size = 10, color = 'black') + 
     scale_shape_manual(name = '', values = 21:23) + 
-    scale_x_continuous(breaks = seq(2009, year_current, 2)) + 
+    scale_x_continuous(breaks = seq(2009, year_current, 1)) + 
     geom_text(color = 'white') + 
     scale_fill_brewer(name = '', palette = 'Set1') + 
     labs(y = "Count", x = "Year", 
@@ -356,18 +356,25 @@ filter(cite_key_list, type == "Article") %>%
   ref_printer
 ```
 
-Casillas, J. V. “The longitudinal development of fine-phonetic detail:
-Stop production in a domestic immersion program”. In: *Language
-Learning*.
+Lozano-Argüelles, C, L. F. Arroyo, N. Rodríguez, E. Durand, J. J. G.
+Pozu, J. M. Rojas, J. Varela, N. de Rocafiguera, and J. V. Casillas
+“Conceptually cued perceptual categorization in adult L2 learners”.
+In: *Studies in Second Language Acquisition*. DOI:
+<https://doi.org/10.1017/S0272263120000273>.
 
 Lozano-Argüelles, C, N. Sagarra, and J. V. Casillas “Slowly but surely:
 Interpreting facilitates L2 morphological anticipation based on
 suprasegmental and segmental information”. In: *Bilingualism: Language
 and Cognition*. DOI: <https://doi.org/10.1017/S1366728919000634>.
 
-Casillas, J. V. “Phonetic category formation is perceptually driven
-during the early stages of adult L2 development”. In: *Language and
-Speech*. DOI: <https://doi.org/10.1177/0023830919866225>.
+Casillas, J. V. (2020). “The longitudinal development of fine-phonetic
+detail: Stop production in a domestic immersion program”. In: *Language
+Learning* 70.3, pp. 768-806. DOI: <https://doi.org/10.1111/lang.12392>.
+
+Casillas, J. V. (2020). “Phonetic category formation is perceptually
+driven during the early stages of adult L2 development”. In: *Language
+and Speech* 63.3, pp. 550-581. DOI:
+<https://doi.org/10.1177/0023830919866225>.
 
 Casillas, J. V. and M. Simonet (2018). “Perceptual categorization and
 bilingual language modes: Assessing the double phonemic boundary in

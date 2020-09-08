@@ -1,7 +1,8 @@
 citekey,type,year
-CasillasProdStops_ll2019,Article,in press
+casillas_dpbe_l2_2020,Article,in press
+CasillasProdStops_ll2019,Article,2020
 SagarraLozanoCasillas_blc2019,Article,in press
-CasillasProdPercStops,Article,in press
+CasillasProdPercStops,Article,2020
 CasillasSimonet_jphon2018,Article,2018
 SagarraCasillas_JSLS2018,Article,2018
 BessettCasillasRamirezSpIC2017,Article,2017
@@ -18,7 +19,6 @@ Colina2013,Book,2013
 Casillas2012divergencias,Article,2012
 Casillas2010gaceta,Article,2010
 Casillas2009gaceta,Article,2009
-casillas_dpbe_l2_2019,Book,under review
 Casillas_simonet_aldrich_coronal_stops,Book,in preparation
 CasillasProdSemantic,Book,in preparation
 CasillasStress,Book,in preparation
@@ -37,6 +37,7 @@ casillas_power,Electronic,2018
 casillas_distinctive_features,Electronic,2017
 casillas_r_snippets,Electronic,2017
 casillas_latex_ipa,Electronic,2017
+casillas_wise_2020,Misc,2020
 casillas_dpbe_HLS2019,Misc,2019
 casillas_morphpred_HLS2019,Misc,2019
 simonet_casillas_coloq2019,Misc,2019
