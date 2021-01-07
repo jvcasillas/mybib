@@ -1,7 +1,7 @@
 
 # mybib
 
-**Last Updated**: 2020-09-08 15:39:20  
+**Last Updated**: 2021-01-07 15:22:15  
 **License**: Public Domain (CC-0)
 
 Version controlled .bib files for my scholarly work, as well as some
@@ -186,7 +186,7 @@ mj_h <- predict_h_index(miguel) %>% mutate(author = "miguel")
 mj_c <- get_citation_history(miguel) %>% mutate(author = "miguel")
 ```
 
-My current h-index is 5. I don’t really know what this means (yet), but
+My current h-index is 7. I don’t really know what this means (yet), but
 I can predict how this will grow over the next ten years.
 
 ``` r
@@ -262,6 +262,10 @@ my_c %>%
     ylim(0, 30) + 
     my_theme()
 ```
+
+    ## Warning: Removed 1 row(s) containing missing values (geom_path).
+
+    ## Warning: Removed 1 rows containing missing values (geom_point).
 
 <img src="README_files/figure-gfm/citation-history-1.png" width="768" />
 
@@ -356,16 +360,21 @@ filter(cite_key_list, type == "Article") %>%
   ref_printer
 ```
 
-Lozano-Argüelles, C, L. F. Arroyo, N. Rodríguez, E. Durand, J. J. G.
+Lozano-Argüelles, C., L. F. Arroyo, N. Rodríguez, E. Durand, J. J. G.
 Pozu, J. M. Rojas, J. Varela, N. de Rocafiguera, and J. V. Casillas
 “Conceptually cued perceptual categorization in adult L2 learners”.
 In: *Studies in Second Language Acquisition*. DOI:
 <https://doi.org/10.1017/S0272263120000273>.
 
-Lozano-Argüelles, C, N. Sagarra, and J. V. Casillas “Slowly but surely:
+Lozano-Argüelles, C., N. Sagarra, and J. V. Casillas “Slowly but surely:
 Interpreting facilitates L2 morphological anticipation based on
 suprasegmental and segmental information”. In: *Bilingualism: Language
 and Cognition*. DOI: <https://doi.org/10.1017/S1366728919000634>.
+
+Casillas, J. V. (2021). “Interlingual Interactions Elicit Performance
+Mismatches Not”Compromise" Categories in Early Bilinguals: Evidence from
+Meta-Analysis and Coronal Stops". In: *Languages* 6.9, pp. 1-20. DOI:
+<https://doi.org/10.3390/languages6010009>.
 
 Casillas, J. V. (2020). “The longitudinal development of fine-phonetic
 detail: Stop production in a domestic immersion program”. In: *Language
@@ -386,9 +395,9 @@ morphological anticipation during L1/L2 lexical access”. In: *Journal of
 Second Language Studies* 1.1, pp. 31-59. DOI:
 <https://doi.org/10.1075/jsls.17026.sag>.
 
-Bessett, R. M, J. V. Casillas, and M. Ramírez Martínez (2017). “Language
-choice and accommodation: Casual encounters in San Ysidro and Nogales”.
-In: *Spanish in Context* 14.1, pp. 78-98. DOI:
+Bessett, R. M., J. V. Casillas, and M. Ramírez Martínez (2017).
+“Language choice and accommodation: Casual encounters in San Ysidro
+and Nogales”. In: *Spanish in Context* 14.1, pp. 78-98. DOI:
 <https://doi.org/10.1075/sic.14.1.04bes>.
 
 Casillas, J. V. (2017). “Reseña de Lacorte, Manel. 2014. The Routledge
