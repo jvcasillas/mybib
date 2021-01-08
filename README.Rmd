@@ -107,7 +107,7 @@ datj <- aggregate(bibtype ~ journal, data = bib, FUN = length)
 
 dat %>% 
   group_by(., journal) %>% 
-  summarize(., counts = n()) %>% 
+  summarize(., counts = n(), .groups = "drop") %>% 
   na.omit() %>% 
   mutate(., journal = fct_reorder(journal, counts)) %>% 
   ggplot(., aes(x = journal, y = counts, label = counts)) + 
@@ -137,7 +137,7 @@ map(authors, HTMLdecode) %>%
   unlist(.) %>% 
   enframe(.) %>% 
   group_by(., value) %>% 
-  summarize(., counts = n()) %>% 
+  summarize(., counts = n(), .groups = "drop") %>% 
   mutate(., value = fct_reorder(value, counts)) %>% 
   ggplot(., aes(x = value, y = counts, label = counts)) + 
     geom_bar(stat = "identity", color = 'black', 
@@ -156,7 +156,7 @@ prod <- dat %>%
   select(., year) %>% 
   na.omit(.) %>% 
   group_by(., year) %>% 
-  summarize(., counts = n()) %>% 
+  summarize(., counts = n(), .groups = "drop") %>% 
   ungroup(.) %>% 
   mutate(., status = if_else(year <=2012, 'MA\nStudent', 
                              if_else(year <=2016, 'PhD\nStudent', 
@@ -274,7 +274,6 @@ my_c %>%
   ggplot(., aes(x = year, y = cites)) + 
     geom_path() + 
     geom_point(pch = 24, fill = "grey90", size = 3) + 
-    ylim(0, 30) + 
     my_theme()
 
 ms_c %>% 
@@ -316,14 +315,15 @@ Both MS and I had bumps in year 5, but they aren't even remotely comparable. ðŸ˜
 - Language and Speech
 - Language Learning
 - Studies in SLA (replication study)
+- Languages
 
 ## Submitted
 
+- Some translation journal
 
 ## In prep
 
 - JASA
-- Languages
 - Language learning
 
 ## On deck

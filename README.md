@@ -1,7 +1,7 @@
 
 # mybib
 
-**Last Updated**: 2021-01-07 15:22:15  
+**Last Updated**: 2021-01-07 22:28:48  
 **License**: Public Domain (CC-0)
 
 Version controlled .bib files for my scholarly work, as well as some
@@ -73,7 +73,7 @@ datj <- aggregate(bibtype ~ journal, data = bib, FUN = length)
 
 dat %>% 
   group_by(., journal) %>% 
-  summarize(., counts = n()) %>% 
+  summarize(., counts = n(), .groups = "drop") %>% 
   na.omit() %>% 
   mutate(., journal = fct_reorder(journal, counts)) %>% 
   ggplot(., aes(x = journal, y = counts, label = counts)) + 
@@ -85,8 +85,6 @@ dat %>%
     coord_flip() + 
     my_theme()
 ```
-
-    ## `summarise()` ungrouping output (override with `.groups` argument)
 
 <img src="README_files/figure-gfm/journal-1.png" width="768" />
 
@@ -107,7 +105,7 @@ map(authors, HTMLdecode) %>%
   unlist(.) %>% 
   enframe(.) %>% 
   group_by(., value) %>% 
-  summarize(., counts = n()) %>% 
+  summarize(., counts = n(), .groups = "drop") %>% 
   mutate(., value = fct_reorder(value, counts)) %>% 
   ggplot(., aes(x = value, y = counts, label = counts)) + 
     geom_bar(stat = "identity", color = 'black', 
@@ -119,8 +117,6 @@ map(authors, HTMLdecode) %>%
     my_theme()
 ```
 
-    ## `summarise()` ungrouping output (override with `.groups` argument)
-
 <img src="README_files/figure-gfm/authors-1.png" width="768" />
 
 ## Publication Years
@@ -130,7 +126,7 @@ prod <- dat %>%
   select(., year) %>% 
   na.omit(.) %>% 
   group_by(., year) %>% 
-  summarize(., counts = n()) %>% 
+  summarize(., counts = n(), .groups = "drop") %>% 
   ungroup(.) %>% 
   mutate(., status = if_else(year <=2012, 'MA\nStudent', 
                              if_else(year <=2016, 'PhD\nStudent', 
@@ -138,11 +134,7 @@ prod <- dat %>%
             status = fct_relevel(status, 
                                  c('MA\nStudent', 'PhD\nStudent', 
                                    'Asst.\nProf')))
-```
 
-    ## `summarise()` ungrouping output (override with `.groups` argument)
-
-``` r
 year_max <- max(prod$counts)
 year_current <- prod$year %>% unique %>% max
 
@@ -259,13 +251,8 @@ my_c %>%
   ggplot(., aes(x = year, y = cites)) + 
     geom_path() + 
     geom_point(pch = 24, fill = "grey90", size = 3) + 
-    ylim(0, 30) + 
     my_theme()
 ```
-
-    ## Warning: Removed 1 row(s) containing missing values (geom_path).
-
-    ## Warning: Removed 1 rows containing missing values (geom_point).
 
 <img src="README_files/figure-gfm/citation-history-1.png" width="768" />
 
@@ -314,13 +301,15 @@ comparable. 😳
   - Language and Speech
   - Language Learning
   - Studies in SLA (replication study)
+  - Languages
 
 ## Submitted
+
+  - Some translation journal
 
 ## In prep
 
   - JASA
-  - Languages
   - Language learning
 
 ## On deck
