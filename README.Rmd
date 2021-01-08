@@ -284,7 +284,7 @@ ms_c %>%
     my_theme()
 ```
 
-It looks like 2019 is now my best year for getting cited. 
+Note that these are cumulative citations by year. 
 
 Let's plot this in comparison to MS. 
 

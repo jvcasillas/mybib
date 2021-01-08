@@ -1,7 +1,7 @@
 
 # mybib
 
-**Last Updated**: 2021-01-07 22:28:48  
+**Last Updated**: 2021-01-08 18:00:07  
 **License**: Public Domain (CC-0)
 
 Version controlled .bib files for my scholarly work, as well as some
@@ -267,7 +267,7 @@ ms_c %>%
 
 <img src="README_files/figure-gfm/citation-history-2.png" width="768" />
 
-It looks like 2019 is now my best year for getting cited.
+Note that these are cumulative citations by year.
 
 Let’s plot this in comparison to MS.
 
