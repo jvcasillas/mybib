@@ -314,15 +314,18 @@ Both MS and I had bumps in year 5, but they aren't even remotely comparable. ðŸ˜
 - Bilingualism: Language and Cognition
 - Language and Speech
 - Language Learning
-- Studies in SLA (replication study)
+- Studies in SLA
+- Spanish in Context
 - Languages
+- Translation, Cognition & Behavior
 
 ## Submitted
 
-- Some translation journal
+- Advances in Methods and Practices in Psychological Science
 
 ## In prep
 
+- Applied Psycholinguistics (10k)
 - JASA
 - Language learning
 
@@ -334,7 +337,6 @@ Both MS and I had bumps in year 5, but they aren't even remotely comparable. ðŸ˜
 
 ## Wishlist
 
-- Applied Psycholinguistics (10k)
 - Heritage Language Journal
 - Linguistic approaches to bilingualism 
 - Laboratory phonology

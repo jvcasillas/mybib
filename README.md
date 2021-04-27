@@ -1,7 +1,7 @@
 
 # mybib
 
-**Last Updated**: 2021-01-08 18:00:07  
+**Last Updated**: 2021-04-27 15:36:37  
 **License**: Public Domain (CC-0)
 
 Version controlled .bib files for my scholarly work, as well as some
@@ -16,7 +16,7 @@ when I want to print a list of references.
 Initial commit is a direct copy of example done by
 [leeper](https://github.com/leeper/references).
 
------
+------------------------------------------------------------------------
 
 Load bibs and generate some useful files and dataframes:
 
@@ -286,45 +286,47 @@ bind_rows(my_c, ms_c, mj_c) %>%
 Both MS and I had bumps in year 5, but they aren’t even remotely
 comparable. 😳
 
------
+------------------------------------------------------------------------
 
 # Journals
 
 ## Already published or accepted
 
-  - Journal of Second Language Studies
-  - Second Language Research
-  - Phonetica
-  - Journal of the Acoustical Society of America
-  - Journal of Phonetics
-  - Bilingualism: Language and Cognition
-  - Language and Speech
-  - Language Learning
-  - Studies in SLA (replication study)
-  - Languages
+-   Journal of Second Language Studies
+-   Second Language Research
+-   Phonetica
+-   Journal of the Acoustical Society of America
+-   Journal of Phonetics
+-   Bilingualism: Language and Cognition
+-   Language and Speech
+-   Language Learning
+-   Studies in SLA
+-   Spanish in Context
+-   Languages
+-   Translation, Cognition & Behavior
 
 ## Submitted
 
-  - Some translation journal
+-   Advances in Methods and Practices in Psychological Science
 
 ## In prep
 
-  - JASA
-  - Language learning
+-   Applied Psycholinguistics (10k)
+-   JASA
+-   Language learning
 
 ## On deck
 
-  - Journal of Second Language Pronunciation
-  - International Journal of Bilingualism
+-   Journal of Second Language Pronunciation
+-   International Journal of Bilingualism
 
 ## Wishlist
 
-  - Applied Psycholinguistics (10k)
-  - Heritage Language Journal
-  - Linguistic approaches to bilingualism
-  - Laboratory phonology
+-   Heritage Language Journal
+-   Linguistic approaches to bilingualism
+-   Laboratory phonology
 
------
+------------------------------------------------------------------------
 
 # My references (testing)
 
@@ -349,21 +351,20 @@ filter(cite_key_list, type == "Article") %>%
   ref_printer
 ```
 
-Lozano-Argüelles, C., L. F. Arroyo, N. Rodríguez, E. Durand, J. J. G.
-Pozu, J. M. Rojas, J. Varela, N. de Rocafiguera, and J. V. Casillas
-“Conceptually cued perceptual categorization in adult L2 learners”.
-In: *Studies in Second Language Acquisition*. DOI:
-<https://doi.org/10.1017/S0272263120000273>.
-
-Lozano-Argüelles, C., N. Sagarra, and J. V. Casillas “Slowly but surely:
-Interpreting facilitates L2 morphological anticipation based on
-suprasegmental and segmental information”. In: *Bilingualism: Language
-and Cognition*. DOI: <https://doi.org/10.1017/S1366728919000634>.
+Jiménez-Crespo, M. and J. V. Casillas “Literal is not always easier:
+Literal and default translation, post-editing effort, and comparable
+corpora”. In: *Translation, Cognition & Behavior*.
 
 Casillas, J. V. (2021). “Interlingual Interactions Elicit Performance
-Mismatches Not”Compromise" Categories in Early Bilinguals: Evidence from
-Meta-Analysis and Coronal Stops". In: *Languages* 6.9, pp. 1-20. DOI:
-<https://doi.org/10.3390/languages6010009>.
+Mismatches Not ‘Compromise’ Categories in Early Bilinguals: Evidence
+from Meta-Analysis and Coronal Stops”. In: *Languages* 6.9, pp. 1-20.
+DOI: <https://doi.org/10.3390/languages6010009>.
+
+Lozano-Argüelles, C., L. F. Arroyo, N. Rodríguez, E. Durand, J. J. G.
+Pozu, J. M. Rojas, J. Varela, N. de Rocafiguera, and J. V. Casillas
+(2021). “Conceptually cued perceptual categorization in adult L2
+learners”. In: *Studies in Second Language Acquisition* 43 (1). DOI:
+<https://doi.org/10.1017/S0272263120000273>.
 
 Casillas, J. V. (2020). “The longitudinal development of fine-phonetic
 detail: Stop production in a domestic immersion program”. In: *Language
@@ -373,6 +374,11 @@ Casillas, J. V. (2020). “Phonetic category formation is perceptually
 driven during the early stages of adult L2 development”. In: *Language
 and Speech* 63.3, pp. 550-581. DOI:
 <https://doi.org/10.1177/0023830919866225>.
+
+Lozano-Argüelles, C., N. Sagarra, and J. V. Casillas (2020). “Slowly but
+surely: Interpreting facilitates L2 morphological anticipation based on
+suprasegmental and segmental information”. In: *Bilingualism: Language
+and Cognition* 23 (4). DOI: <https://doi.org/10.1017/S1366728919000634>.
 
 Casillas, J. V. and M. Simonet (2018). “Perceptual categorization and
 bilingual language modes: Assessing the double phonemic boundary in
@@ -385,14 +391,14 @@ Second Language Studies* 1.1, pp. 31-59. DOI:
 <https://doi.org/10.1075/jsls.17026.sag>.
 
 Bessett, R. M., J. V. Casillas, and M. Ramírez Martínez (2017).
-“Language choice and accommodation: Casual encounters in San Ysidro
-and Nogales”. In: *Spanish in Context* 14.1, pp. 78-98. DOI:
+“Language choice and accommodation: Casual encounters in San Ysidro and
+Nogales”. In: *Spanish in Context* 14.1, pp. 78-98. DOI:
 <https://doi.org/10.1075/sic.14.1.04bes>.
 
 Casillas, J. V. (2017). “Reseña de Lacorte, Manel. 2014. The Routledge
 Handbook of Hispanic Applied Linguistics. New York: Routledge.” In:
-*Infoling* 2.43. \<URL:
-<http://infoling.org/informacion/Review230.htm>\>.
+*Infoling* 2.43. &lt;URL:
+<http://infoling.org/informacion/Review230.htm>&gt;.
 
 Llompart, M. and J. V. Casillas (2016). “Lexically driven selective
 adaptation by ambiguous auditory stimuli occurs after limited exposure
