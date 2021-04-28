@@ -1,7 +1,7 @@
 
 # mybib
 
-**Last Updated**: 2021-04-27 15:36:37  
+**Last Updated**: 2021-04-28 13:01:14  
 **License**: Public Domain (CC-0)
 
 Version controlled .bib files for my scholarly work, as well as some
@@ -363,8 +363,8 @@ DOI: <https://doi.org/10.3390/languages6010009>.
 Lozano-Argüelles, C., L. F. Arroyo, N. Rodríguez, E. Durand, J. J. G.
 Pozu, J. M. Rojas, J. Varela, N. de Rocafiguera, and J. V. Casillas
 (2021). “Conceptually cued perceptual categorization in adult L2
-learners”. In: *Studies in Second Language Acquisition* 43 (1). DOI:
-<https://doi.org/10.1017/S0272263120000273>.
+learners”. In: *Studies in Second Language Acquisition* 43.1,
+pp. 204-219. DOI: <https://doi.org/10.1017/S0272263120000273>.
 
 Casillas, J. V. (2020). “The longitudinal development of fine-phonetic
 detail: Stop production in a domestic immersion program”. In: *Language
@@ -378,7 +378,8 @@ and Speech* 63.3, pp. 550-581. DOI:
 Lozano-Argüelles, C., N. Sagarra, and J. V. Casillas (2020). “Slowly but
 surely: Interpreting facilitates L2 morphological anticipation based on
 suprasegmental and segmental information”. In: *Bilingualism: Language
-and Cognition* 23 (4). DOI: <https://doi.org/10.1017/S1366728919000634>.
+and Cognition* 23.4, pp. 752-762. DOI:
+<https://doi.org/10.1017/S1366728919000634>.
 
 Casillas, J. V. and M. Simonet (2018). “Perceptual categorization and
 bilingual language modes: Assessing the double phonemic boundary in
