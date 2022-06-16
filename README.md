@@ -1,14 +1,14 @@
 
 # mybib
 
-**Last Updated**: 2021-04-28 13:01:14  
+**Last Updated**: 2022-06-16 12:11:46  
 **License**: Public Domain (CC-0)
 
 Version controlled .bib files for my scholarly work, as well as some
 light analyses and a complete reference list.
 
-This repo now includes two main bib files: **publications\_html.bib**
-and **publications\_latex.bib**.
+This repo now includes two main bib files: **publications_html.bib** and
+**publications_latex.bib**.
 
 I call these files in to other projects (e.g., cv, personal website)
 when I want to print a list of references.
@@ -178,7 +178,7 @@ mj_h <- predict_h_index(miguel) %>% mutate(author = "miguel")
 mj_c <- get_citation_history(miguel) %>% mutate(author = "miguel")
 ```
 
-My current h-index is 7. I don’t really know what this means (yet), but
+My current h-index is 9. I don’t really know what this means (yet), but
 I can predict how this will grow over the next ten years.
 
 ``` r
@@ -213,10 +213,11 @@ This might be a useful metric for setting goals.
 ``` r
 # Plot h-index side by side
 h_index_1 <- bind_rows(my_h, ms_h, mj_h) %>% 
-  ggplot(., aes(x = years_ahead, y = h_index, color = author)) + 
+  ggplot(., aes(x = years_ahead, y = h_index, shape = author, color = author)) + 
     geom_path() + 
-    geom_point(pch = 24, fill = "grey90", size = 3) + 
+    geom_point(fill = "grey90", size = 3) + 
     scale_color_viridis_d(option = "C", end = 0.4) + 
+    scale_shape_manual(values = 21:23) + 
     labs(title = "Comparison of h-index", 
          subtitle = "Predicted h-index values over 10 years.") + 
     my_theme() + 
@@ -251,17 +252,23 @@ my_c %>%
   ggplot(., aes(x = year, y = cites)) + 
     geom_path() + 
     geom_point(pch = 24, fill = "grey90", size = 3) + 
+    scale_x_continuous(breaks = seq(min(my_c$year), max(my_c$year), 1)) + 
+    coord_cartesian(ylim = c(0, 0.9 * sum(my_c$cites))) + 
+    labs(y = "Citations", x = "Year") + 
     my_theme()
 ```
 
 <img src="README_files/figure-gfm/citation-history-1.png" width="768" />
 
 ``` r
-ms_c %>% 
-  ggplot(., aes(x = year, y = cites)) + 
+my_c %>% 
+  mutate(cum = cumsum(cites)) %>% 
+  ggplot(., aes(x = year, y = cum)) + 
     geom_path() + 
     geom_point(pch = 24, fill = "grey90", size = 3) + 
-    ylim(0, 250) + 
+    scale_x_continuous(breaks = seq(min(my_c$year), max(my_c$year), 1)) + 
+    coord_cartesian(ylim = c(0, sum(my_c$cites) + 10)) + 
+    labs(y = "Cumulative citations", x = "Year") + 
     my_theme()
 ```
 
@@ -273,11 +280,15 @@ Let’s plot this in comparison to MS.
 
 ``` r
 bind_rows(my_c, ms_c, mj_c) %>% 
-  ggplot(., aes(x = year, y = cites, color = author)) + 
+  ggplot(., aes(x = year, y = cites, shape = author, color = author)) + 
     geom_path() + 
-    geom_point(pch = 24, size = 3, fill = "grey90") + 
+    geom_point(aes(fill = author), size = 3.5, color = "white", stroke = 1) + 
+    scale_shape_manual(name = NULL, values = 21:23) + 
+    scale_color_viridis_d(name = NULL, option = "C", end = 0.4) + 
+    scale_fill_viridis_d(name = NULL, option = "C", end = 0.4) + 
+    scale_x_continuous(breaks = seq(min(ms_c$year), max(my_c$year), 2)) + 
     coord_cartesian(ylim = c(0, max(mj_c$cites) + 20)) + 
-    scale_color_viridis_d(option = "C", end = 0.4) + 
+    labs(y = "Citations", x = "Year") + 
     my_theme()
 ```
 
@@ -304,16 +315,16 @@ comparable. 😳
 -   Spanish in Context
 -   Languages
 -   Translation, Cognition & Behavior
+-   Advances in Methods and Practices in Psychological Science
 
 ## Submitted
 
--   Advances in Methods and Practices in Psychological Science
+-   Applied Psycholinguistics (10k)
+-   SLR
 
 ## In prep
 
--   Applied Psycholinguistics (10k)
 -   JASA
--   Language learning
 
 ## On deck
 
@@ -398,8 +409,7 @@ Nogales”. In: *Spanish in Context* 14.1, pp. 78-98. DOI:
 
 Casillas, J. V. (2017). “Reseña de Lacorte, Manel. 2014. The Routledge
 Handbook of Hispanic Applied Linguistics. New York: Routledge.” In:
-*Infoling* 2.43. &lt;URL:
-<http://infoling.org/informacion/Review230.htm>&gt;.
+*Infoling* 2.43. <http://infoling.org/informacion/Review230.htm>.
 
 Llompart, M. and J. V. Casillas (2016). “Lexically driven selective
 adaptation by ambiguous auditory stimuli occurs after limited exposure
