@@ -1,7 +1,7 @@
 
 # mybib
 
-**Last Updated**: 2023-04-08 12:39:39  
+**Last Updated**: 2023-04-08 14:13:43  
 **License**: Public Domain (CC-0)
 
 Version controlled .bib files for my scholarly work, as well as some
@@ -444,20 +444,21 @@ filter(cite_key_list, type == "Article") %>%
   ref_printer
 ```
 
-Jiménez-Crespo, M. and J. V. Casillas “Literal is not always easier:
-Literal and default translation, post-editing effort, and comparable
-corpora”. In: *Translation, Cognition & Behavior*.
+Jiménez-Crespo, M. and J. V. Casillas (2021). “Literal is not always
+easier: Literal and default translation, post-editing effort, and
+comparable corpora”. In: *Translation, Cognition & Behavior* 4.1. DOI:
+10.1075/tcb.00048.jim.
 
 Casillas, J. V. (2021). “Interlingual Interactions Elicit Performance
 Mismatches Not ‘Compromise’ Categories in Early Bilinguals: Evidence
 from Meta-Analysis and Coronal Stops”. In: *Languages* 6.9, pp. 1-20.
-DOI: <https://doi.org/10.3390/languages6010009>.
+DOI: 10.3390/languages6010009.
 
 Lozano-Argüelles, C., L. F. Arroyo, N. Rodr'iguez, E. Durand, J. J. G.
 Pozu, J. M. Rojas, J. Varela, N. de Rocafiguera, and J. V. Casillas
 (2021). “Conceptually cued perceptual categorization in adult L2
 learners”. In: *Studies in Second Language Acquisition* 43.1, pp.
-204-219. DOI: <https://doi.org/10.1017/S0272263120000273>.
+204-219. DOI: 10.1017/S0272263120000273.
 
 Casillas, J. V. (2020). “The longitudinal development of fine-phonetic
 detail: Stop production in a domestic immersion program”. In: *Language
@@ -465,29 +466,26 @@ Learning* 70.3, pp. 768-806. DOI: <https://doi.org/10.1111/lang.12392>.
 
 Casillas, J. V. (2020). “Phonetic category formation is perceptually
 driven during the early stages of adult L2 development”. In: *Language
-and Speech* 63.3, pp. 550-581. DOI:
-<https://doi.org/10.1177/0023830919866225>.
+and Speech* 63.3, pp. 550-581. DOI: 10.1177/0023830919866225.
 
 Lozano-Argüelles, C., N. Sagarra, and J. V. Casillas (2020). “Slowly but
 surely: Interpreting facilitates L2 morphological anticipation based on
 suprasegmental and segmental information”. In: *Bilingualism: Language
-and Cognition* 23.4, pp. 752-762. DOI:
-<https://doi.org/10.1017/S1366728919000634>.
+and Cognition* 23.4, pp. 752-762. DOI: 10.1017/S1366728919000634.
 
 Casillas, J. V. and M. Simonet (2018). “Perceptual categorization and
 bilingual language modes: Assessing the double phonemic boundary in
 early and late bilinguals”. In: *Journal of Phonetics* 71, pp. 51-64.
-DOI: <https://doi.org/10.1016/j.wocn.2018.07.002>.
+DOI: 10.1016/j.wocn.2018.07.002.
 
 Sagarra, N. and J. V. Casillas (2018). “Suprasegmental information cues
 morphological anticipation during L1/L2 lexical access”. In: *Journal of
-Second Language Studies* 1.1, pp. 31-59. DOI:
-<https://doi.org/10.1075/jsls.17026.sag>.
+Second Language Studies* 1.1, pp. 31-59. DOI: 10.1075/jsls.17026.sag.
 
 Bessett, R. M., J. V. Casillas, and M. Ramírez Martínez (2017).
 “Language choice and accommodation: Casual encounters in San Ysidro and
 Nogales”. In: *Spanish in Context* 14.1, pp. 78-98. DOI:
-<https://doi.org/10.1075/sic.14.1.04bes>.
+10.1075/sic.14.1.04bes.
 
 Casillas, J. V. (2017). “Reseña de Lacorte, Manel. 2014. The Routledge
 Handbook of Hispanic Applied Linguistics. New York: Routledge.” In:
@@ -496,17 +494,15 @@ Handbook of Hispanic Applied Linguistics. New York: Routledge.” In:
 Llompart, M. and J. V. Casillas (2016). “Lexically driven selective
 adaptation by ambiguous auditory stimuli occurs after limited exposure
 to adaptors”. In: *Journal of the Acoustical Society of America* 139.5,
-pp. EL172-EL177. DOI: <https://doi.org/10.1121/1.4951704>.
+pp. EL172-EL177. DOI: 10.1121/1.4951704.
 
 Casillas, J. V. and M. Simonet (2016). “Production and perception of the
 English /æ/-/ɑ/ contrast in switched-dominance speakers”. In: *Second
-Language Research* 32.2, pp. 171-195. DOI:
-<https://doi.org/10.1177/0267658315608912>.
+Language Research* 32.2, pp. 171-195. DOI: 10.1177/0267658315608912.
 
 Casillas, J. V. (2015). “Production and perception of the /i/-/ɪ/ vowel
 contrast: The case of L2-dominant early learners of English”. In:
-*Phonetica* 72.2-3, pp. 182-205. DOI:
-<https://doi.org/10.1159/000431101>.
+*Phonetica* 72.2-3, pp. 182-205. DOI: 10.1159/000431101.
 
 Casillas, J. V. (2012). “La fricativización del africado /tʃ/ en el
 habla de las mujeres del sur de Arizona”. In: *Divergencias: Revista de
