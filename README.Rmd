@@ -194,6 +194,10 @@ ms_id <- "GnYMTI8AAAAJ"
 
 miguel <- "12mgD38AAAAJ"
 
+ids <- c(my_id, ms_id)
+compare_scholars(ids)
+compare_scholar_careers(ids)
+
 # Get h-index and citation history
 my_h <- predict_h_index(my_id) %>% mutate(author = "jvc")
 my_c <- get_citation_history(my_id) %>% mutate(author = "jvc")
@@ -330,11 +334,13 @@ Both MS and I had bumps in year 5, but they aren't even remotely comparable. ðŸ˜
 - Languages
 - Translation, Cognition & Behavior
 - Advances in Methods and Practices in Psychological Science
+- Frontiers in Psychology
+- Frontiers in Communication
 
 ## Submitted
 
 - Applied Psycholinguistics (10k)
-- SLR
+- Frontiers in Psychology
 
 ## In prep
 

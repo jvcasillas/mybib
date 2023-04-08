@@ -1,7 +1,7 @@
 
 # mybib
 
-**Last Updated**: 2022-06-16 12:11:46  
+**Last Updated**: 2023-04-08 12:39:39  
 **License**: Public Domain (CC-0)
 
 Version controlled .bib files for my scholarly work, as well as some
@@ -63,6 +63,12 @@ counts %>%
     coord_flip() + 
     my_theme()
 ```
+
+    ## Warning: The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.
+    ## ℹ Please use the `linewidth` argument instead.
+    ## This warning is displayed once every 8 hours.
+    ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+    ## generated.
 
 <img src="README_files/figure-gfm/bibtype-1.png" width="768" />
 
@@ -166,6 +172,80 @@ ms_id <- "GnYMTI8AAAAJ"
 
 miguel <- "12mgD38AAAAJ"
 
+ids <- c(my_id, ms_id)
+compare_scholars(ids)
+```
+
+    ##              id year cites total               name
+    ## 1  6sd7cVAAAAAJ 2011    12    12 Joseph V. Casillas
+    ## 2  6sd7cVAAAAAJ 2012     3    15 Joseph V. Casillas
+    ## 3  6sd7cVAAAAAJ 2013    20    35 Joseph V. Casillas
+    ## 4  6sd7cVAAAAAJ 2014    20    55 Joseph V. Casillas
+    ## 5  6sd7cVAAAAAJ 2015    38    93 Joseph V. Casillas
+    ## 6  6sd7cVAAAAAJ 2016    44   137 Joseph V. Casillas
+    ## 7  6sd7cVAAAAAJ 2017     1   138 Joseph V. Casillas
+    ## 8  6sd7cVAAAAAJ 2018    38   176 Joseph V. Casillas
+    ## 9  6sd7cVAAAAAJ 2020    47   223 Joseph V. Casillas
+    ## 10 6sd7cVAAAAAJ 2021    10   233 Joseph V. Casillas
+    ## 11 6sd7cVAAAAAJ 2022     1   234 Joseph V. Casillas
+    ## 12 6sd7cVAAAAAJ 2023     0   234 Joseph V. Casillas
+    ## 13 6sd7cVAAAAAJ   NA     0   234 Joseph V. Casillas
+    ## 14 GnYMTI8AAAAJ 2005     5     5     Miquel Simonet
+    ## 15 GnYMTI8AAAAJ 2006     9    14     Miquel Simonet
+    ## 16 GnYMTI8AAAAJ 2007     0    14     Miquel Simonet
+    ## 17 GnYMTI8AAAAJ 2008   169   183     Miquel Simonet
+    ## 18 GnYMTI8AAAAJ 2009    49   232     Miquel Simonet
+    ## 19 GnYMTI8AAAAJ 2010   202   434     Miquel Simonet
+    ## 20 GnYMTI8AAAAJ 2011   308   742     Miquel Simonet
+    ## 21 GnYMTI8AAAAJ 2012   186   928     Miquel Simonet
+    ## 22 GnYMTI8AAAAJ 2013     0   928     Miquel Simonet
+    ## 23 GnYMTI8AAAAJ 2014   162  1090     Miquel Simonet
+    ## 24 GnYMTI8AAAAJ 2015    81  1171     Miquel Simonet
+    ## 25 GnYMTI8AAAAJ 2016    32  1203     Miquel Simonet
+    ## 26 GnYMTI8AAAAJ 2017     8  1211     Miquel Simonet
+    ## 27 GnYMTI8AAAAJ 2018    46  1257     Miquel Simonet
+    ## 28 GnYMTI8AAAAJ 2019    10  1267     Miquel Simonet
+    ## 29 GnYMTI8AAAAJ 2020    36  1303     Miquel Simonet
+    ## 30 GnYMTI8AAAAJ 2021     9  1312     Miquel Simonet
+    ## 31 GnYMTI8AAAAJ 2022     6  1318     Miquel Simonet
+    ## 32 GnYMTI8AAAAJ 2023     1  1319     Miquel Simonet
+    ## 33 GnYMTI8AAAAJ   NA     0  1319     Miquel Simonet
+
+``` r
+compare_scholar_careers(ids)
+```
+
+    ##              id year cites career_year               name
+    ## 1  6sd7cVAAAAAJ 2013     1           0 Joseph V. Casillas
+    ## 2  6sd7cVAAAAAJ 2014     2           1 Joseph V. Casillas
+    ## 3  6sd7cVAAAAAJ 2015     3           2 Joseph V. Casillas
+    ## 4  6sd7cVAAAAAJ 2016     8           3 Joseph V. Casillas
+    ## 5  6sd7cVAAAAAJ 2017    11           4 Joseph V. Casillas
+    ## 6  6sd7cVAAAAAJ 2018    14           5 Joseph V. Casillas
+    ## 7  6sd7cVAAAAAJ 2019    16           6 Joseph V. Casillas
+    ## 8  6sd7cVAAAAAJ 2020    47           7 Joseph V. Casillas
+    ## 9  6sd7cVAAAAAJ 2021    53           8 Joseph V. Casillas
+    ## 10 6sd7cVAAAAAJ 2022    46           9 Joseph V. Casillas
+    ## 11 6sd7cVAAAAAJ 2023    15          10 Joseph V. Casillas
+    ## 12 GnYMTI8AAAAJ 2007     4           0     Miquel Simonet
+    ## 13 GnYMTI8AAAAJ 2008     5           1     Miquel Simonet
+    ## 14 GnYMTI8AAAAJ 2009     6           2     Miquel Simonet
+    ## 15 GnYMTI8AAAAJ 2010    19           3     Miquel Simonet
+    ## 16 GnYMTI8AAAAJ 2011    42           4     Miquel Simonet
+    ## 17 GnYMTI8AAAAJ 2012    43           5     Miquel Simonet
+    ## 18 GnYMTI8AAAAJ 2013    64           6     Miquel Simonet
+    ## 19 GnYMTI8AAAAJ 2014    57           7     Miquel Simonet
+    ## 20 GnYMTI8AAAAJ 2015    99           8     Miquel Simonet
+    ## 21 GnYMTI8AAAAJ 2016   103           9     Miquel Simonet
+    ## 22 GnYMTI8AAAAJ 2017   112          10     Miquel Simonet
+    ## 23 GnYMTI8AAAAJ 2018    84          11     Miquel Simonet
+    ## 24 GnYMTI8AAAAJ 2019   128          12     Miquel Simonet
+    ## 25 GnYMTI8AAAAJ 2020   191          13     Miquel Simonet
+    ## 26 GnYMTI8AAAAJ 2021   156          14     Miquel Simonet
+    ## 27 GnYMTI8AAAAJ 2022   159          15     Miquel Simonet
+    ## 28 GnYMTI8AAAAJ 2023    27          16     Miquel Simonet
+
+``` r
 # Get h-index and citation history
 my_h <- predict_h_index(my_id) %>% mutate(author = "jvc")
 my_c <- get_citation_history(my_id) %>% mutate(author = "jvc")
@@ -178,7 +258,7 @@ mj_h <- predict_h_index(miguel) %>% mutate(author = "miguel")
 mj_c <- get_citation_history(miguel) %>% mutate(author = "miguel")
 ```
 
-My current h-index is 9. I don’t really know what this means (yet), but
+My current h-index is 10. I don’t really know what this means (yet), but
 I can predict how this will grow over the next ten years.
 
 ``` r
@@ -303,39 +383,41 @@ comparable. 😳
 
 ## Already published or accepted
 
--   Journal of Second Language Studies
--   Second Language Research
--   Phonetica
--   Journal of the Acoustical Society of America
--   Journal of Phonetics
--   Bilingualism: Language and Cognition
--   Language and Speech
--   Language Learning
--   Studies in SLA
--   Spanish in Context
--   Languages
--   Translation, Cognition & Behavior
--   Advances in Methods and Practices in Psychological Science
+- Journal of Second Language Studies
+- Second Language Research
+- Phonetica
+- Journal of the Acoustical Society of America
+- Journal of Phonetics
+- Bilingualism: Language and Cognition
+- Language and Speech
+- Language Learning
+- Studies in SLA
+- Spanish in Context
+- Languages
+- Translation, Cognition & Behavior
+- Advances in Methods and Practices in Psychological Science
+- Frontiers in Psychology
+- Frontiers in Communication
 
 ## Submitted
 
--   Applied Psycholinguistics (10k)
--   SLR
+- Applied Psycholinguistics (10k)
+- Frontiers in Psychology
 
 ## In prep
 
--   JASA
+- JASA
 
 ## On deck
 
--   Journal of Second Language Pronunciation
--   International Journal of Bilingualism
+- Journal of Second Language Pronunciation
+- International Journal of Bilingualism
 
 ## Wishlist
 
--   Heritage Language Journal
--   Linguistic approaches to bilingualism
--   Laboratory phonology
+- Heritage Language Journal
+- Linguistic approaches to bilingualism
+- Laboratory phonology
 
 ------------------------------------------------------------------------
 
@@ -371,11 +453,11 @@ Mismatches Not ‘Compromise’ Categories in Early Bilinguals: Evidence
 from Meta-Analysis and Coronal Stops”. In: *Languages* 6.9, pp. 1-20.
 DOI: <https://doi.org/10.3390/languages6010009>.
 
-Lozano-Argüelles, C., L. F. Arroyo, N. Rodríguez, E. Durand, J. J. G.
+Lozano-Argüelles, C., L. F. Arroyo, N. Rodr'iguez, E. Durand, J. J. G.
 Pozu, J. M. Rojas, J. Varela, N. de Rocafiguera, and J. V. Casillas
 (2021). “Conceptually cued perceptual categorization in adult L2
-learners”. In: *Studies in Second Language Acquisition* 43.1,
-pp. 204-219. DOI: <https://doi.org/10.1017/S0272263120000273>.
+learners”. In: *Studies in Second Language Acquisition* 43.1, pp.
+204-219. DOI: <https://doi.org/10.1017/S0272263120000273>.
 
 Casillas, J. V. (2020). “The longitudinal development of fine-phonetic
 detail: Stop production in a domestic immersion program”. In: *Language
@@ -428,7 +510,7 @@ contrast: The case of L2-dominant early learners of English”. In:
 
 Casillas, J. V. (2012). “La fricativización del africado /tʃ/ en el
 habla de las mujeres del sur de Arizona”. In: *Divergencias: Revista de
-estudios lingüísticos y literarios* 10.1, pp. 56-70.
+estudios lingü'isticos y literarios* 10.1, pp. 56-70.
 
 Casillas, J. V. (2010). “La vibrante múltiple intervocálica: los
 ejercicios de canto como ayuda a su pronunciación en español”. In: *La
