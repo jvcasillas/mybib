@@ -1,7 +1,7 @@
 
 # mybib
 
-**Last Updated**: 2023-04-08 14:13:43  
+**Last Updated**: 2023-09-18 12:51:49.750343  
 **License**: Public Domain (CC-0)
 
 Version controlled .bib files for my scholarly work, as well as some
@@ -177,39 +177,39 @@ compare_scholars(ids)
 ```
 
     ##              id year cites total               name
-    ## 1  6sd7cVAAAAAJ 2011    12    12 Joseph V. Casillas
-    ## 2  6sd7cVAAAAAJ 2012     3    15 Joseph V. Casillas
-    ## 3  6sd7cVAAAAAJ 2013    20    35 Joseph V. Casillas
-    ## 4  6sd7cVAAAAAJ 2014    20    55 Joseph V. Casillas
-    ## 5  6sd7cVAAAAAJ 2015    38    93 Joseph V. Casillas
-    ## 6  6sd7cVAAAAAJ 2016    44   137 Joseph V. Casillas
-    ## 7  6sd7cVAAAAAJ 2017     1   138 Joseph V. Casillas
-    ## 8  6sd7cVAAAAAJ 2018    38   176 Joseph V. Casillas
-    ## 9  6sd7cVAAAAAJ 2020    47   223 Joseph V. Casillas
-    ## 10 6sd7cVAAAAAJ 2021    10   233 Joseph V. Casillas
-    ## 11 6sd7cVAAAAAJ 2022     1   234 Joseph V. Casillas
-    ## 12 6sd7cVAAAAAJ 2023     0   234 Joseph V. Casillas
-    ## 13 6sd7cVAAAAAJ   NA     0   234 Joseph V. Casillas
-    ## 14 GnYMTI8AAAAJ 2005     5     5     Miquel Simonet
-    ## 15 GnYMTI8AAAAJ 2006     9    14     Miquel Simonet
-    ## 16 GnYMTI8AAAAJ 2007     0    14     Miquel Simonet
-    ## 17 GnYMTI8AAAAJ 2008   169   183     Miquel Simonet
-    ## 18 GnYMTI8AAAAJ 2009    49   232     Miquel Simonet
-    ## 19 GnYMTI8AAAAJ 2010   202   434     Miquel Simonet
-    ## 20 GnYMTI8AAAAJ 2011   308   742     Miquel Simonet
-    ## 21 GnYMTI8AAAAJ 2012   186   928     Miquel Simonet
-    ## 22 GnYMTI8AAAAJ 2013     0   928     Miquel Simonet
-    ## 23 GnYMTI8AAAAJ 2014   162  1090     Miquel Simonet
-    ## 24 GnYMTI8AAAAJ 2015    81  1171     Miquel Simonet
-    ## 25 GnYMTI8AAAAJ 2016    32  1203     Miquel Simonet
-    ## 26 GnYMTI8AAAAJ 2017     8  1211     Miquel Simonet
-    ## 27 GnYMTI8AAAAJ 2018    46  1257     Miquel Simonet
-    ## 28 GnYMTI8AAAAJ 2019    10  1267     Miquel Simonet
-    ## 29 GnYMTI8AAAAJ 2020    36  1303     Miquel Simonet
-    ## 30 GnYMTI8AAAAJ 2021     9  1312     Miquel Simonet
-    ## 31 GnYMTI8AAAAJ 2022     6  1318     Miquel Simonet
-    ## 32 GnYMTI8AAAAJ 2023     1  1319     Miquel Simonet
-    ## 33 GnYMTI8AAAAJ   NA     0  1319     Miquel Simonet
+    ## 1  6sd7cVAAAAAJ 2011    17    17 Joseph V. Casillas
+    ## 2  6sd7cVAAAAAJ 2012     3    20 Joseph V. Casillas
+    ## 3  6sd7cVAAAAAJ 2013    24    44 Joseph V. Casillas
+    ## 4  6sd7cVAAAAAJ 2014    32    76 Joseph V. Casillas
+    ## 5  6sd7cVAAAAAJ 2015    39   115 Joseph V. Casillas
+    ## 6  6sd7cVAAAAAJ 2016    50   165 Joseph V. Casillas
+    ## 7  6sd7cVAAAAAJ 2017     1   166 Joseph V. Casillas
+    ## 8  6sd7cVAAAAAJ 2018    48   214 Joseph V. Casillas
+    ## 9  6sd7cVAAAAAJ 2020    55   269 Joseph V. Casillas
+    ## 10 6sd7cVAAAAAJ 2021    12   281 Joseph V. Casillas
+    ## 11 6sd7cVAAAAAJ 2022     1   282 Joseph V. Casillas
+    ## 12 6sd7cVAAAAAJ 2023     7   289 Joseph V. Casillas
+    ## 13 6sd7cVAAAAAJ   NA     0   289 Joseph V. Casillas
+    ## 14 GnYMTI8AAAAJ 2005    29    29     Miquel Simonet
+    ## 15 GnYMTI8AAAAJ 2006     9    38     Miquel Simonet
+    ## 16 GnYMTI8AAAAJ 2007     0    38     Miquel Simonet
+    ## 17 GnYMTI8AAAAJ 2008   176   214     Miquel Simonet
+    ## 18 GnYMTI8AAAAJ 2009    26   240     Miquel Simonet
+    ## 19 GnYMTI8AAAAJ 2010   211   451     Miquel Simonet
+    ## 20 GnYMTI8AAAAJ 2011   335   786     Miquel Simonet
+    ## 21 GnYMTI8AAAAJ 2012   196   982     Miquel Simonet
+    ## 22 GnYMTI8AAAAJ 2013     0   982     Miquel Simonet
+    ## 23 GnYMTI8AAAAJ 2014   176  1158     Miquel Simonet
+    ## 24 GnYMTI8AAAAJ 2015    91  1249     Miquel Simonet
+    ## 25 GnYMTI8AAAAJ 2016    37  1286     Miquel Simonet
+    ## 26 GnYMTI8AAAAJ 2017     9  1295     Miquel Simonet
+    ## 27 GnYMTI8AAAAJ 2018    53  1348     Miquel Simonet
+    ## 28 GnYMTI8AAAAJ 2019    12  1360     Miquel Simonet
+    ## 29 GnYMTI8AAAAJ 2020    48  1408     Miquel Simonet
+    ## 30 GnYMTI8AAAAJ 2021    14  1422     Miquel Simonet
+    ## 31 GnYMTI8AAAAJ 2022     7  1429     Miquel Simonet
+    ## 32 GnYMTI8AAAAJ 2023     3  1432     Miquel Simonet
+    ## 33 GnYMTI8AAAAJ   NA     0  1432     Miquel Simonet
 
 ``` r
 compare_scholar_careers(ids)
@@ -218,32 +218,32 @@ compare_scholar_careers(ids)
     ##              id year cites career_year               name
     ## 1  6sd7cVAAAAAJ 2013     1           0 Joseph V. Casillas
     ## 2  6sd7cVAAAAAJ 2014     2           1 Joseph V. Casillas
-    ## 3  6sd7cVAAAAAJ 2015     3           2 Joseph V. Casillas
+    ## 3  6sd7cVAAAAAJ 2015     2           2 Joseph V. Casillas
     ## 4  6sd7cVAAAAAJ 2016     8           3 Joseph V. Casillas
     ## 5  6sd7cVAAAAAJ 2017    11           4 Joseph V. Casillas
-    ## 6  6sd7cVAAAAAJ 2018    14           5 Joseph V. Casillas
-    ## 7  6sd7cVAAAAAJ 2019    16           6 Joseph V. Casillas
-    ## 8  6sd7cVAAAAAJ 2020    47           7 Joseph V. Casillas
-    ## 9  6sd7cVAAAAAJ 2021    53           8 Joseph V. Casillas
-    ## 10 6sd7cVAAAAAJ 2022    46           9 Joseph V. Casillas
-    ## 11 6sd7cVAAAAAJ 2023    15          10 Joseph V. Casillas
-    ## 12 GnYMTI8AAAAJ 2007     4           0     Miquel Simonet
+    ## 6  6sd7cVAAAAAJ 2018    18           5 Joseph V. Casillas
+    ## 7  6sd7cVAAAAAJ 2019    17           6 Joseph V. Casillas
+    ## 8  6sd7cVAAAAAJ 2020    48           7 Joseph V. Casillas
+    ## 9  6sd7cVAAAAAJ 2021    54           8 Joseph V. Casillas
+    ## 10 6sd7cVAAAAAJ 2022    54           9 Joseph V. Casillas
+    ## 11 6sd7cVAAAAAJ 2023    49          10 Joseph V. Casillas
+    ## 12 GnYMTI8AAAAJ 2007     5           0     Miquel Simonet
     ## 13 GnYMTI8AAAAJ 2008     5           1     Miquel Simonet
     ## 14 GnYMTI8AAAAJ 2009     6           2     Miquel Simonet
-    ## 15 GnYMTI8AAAAJ 2010    19           3     Miquel Simonet
+    ## 15 GnYMTI8AAAAJ 2010    20           3     Miquel Simonet
     ## 16 GnYMTI8AAAAJ 2011    42           4     Miquel Simonet
-    ## 17 GnYMTI8AAAAJ 2012    43           5     Miquel Simonet
+    ## 17 GnYMTI8AAAAJ 2012    44           5     Miquel Simonet
     ## 18 GnYMTI8AAAAJ 2013    64           6     Miquel Simonet
-    ## 19 GnYMTI8AAAAJ 2014    57           7     Miquel Simonet
-    ## 20 GnYMTI8AAAAJ 2015    99           8     Miquel Simonet
-    ## 21 GnYMTI8AAAAJ 2016   103           9     Miquel Simonet
+    ## 19 GnYMTI8AAAAJ 2014    60           7     Miquel Simonet
+    ## 20 GnYMTI8AAAAJ 2015    97           8     Miquel Simonet
+    ## 21 GnYMTI8AAAAJ 2016   104           9     Miquel Simonet
     ## 22 GnYMTI8AAAAJ 2017   112          10     Miquel Simonet
-    ## 23 GnYMTI8AAAAJ 2018    84          11     Miquel Simonet
-    ## 24 GnYMTI8AAAAJ 2019   128          12     Miquel Simonet
-    ## 25 GnYMTI8AAAAJ 2020   191          13     Miquel Simonet
-    ## 26 GnYMTI8AAAAJ 2021   156          14     Miquel Simonet
-    ## 27 GnYMTI8AAAAJ 2022   159          15     Miquel Simonet
-    ## 28 GnYMTI8AAAAJ 2023    27          16     Miquel Simonet
+    ## 23 GnYMTI8AAAAJ 2018    87          11     Miquel Simonet
+    ## 24 GnYMTI8AAAAJ 2019   139          12     Miquel Simonet
+    ## 25 GnYMTI8AAAAJ 2020   194          13     Miquel Simonet
+    ## 26 GnYMTI8AAAAJ 2021   148          14     Miquel Simonet
+    ## 27 GnYMTI8AAAAJ 2022   162          15     Miquel Simonet
+    ## 28 GnYMTI8AAAAJ 2023   120          16     Miquel Simonet
 
 ``` r
 # Get h-index and citation history
@@ -258,7 +258,7 @@ mj_h <- predict_h_index(miguel) %>% mutate(author = "miguel")
 mj_c <- get_citation_history(miguel) %>% mutate(author = "miguel")
 ```
 
-My current h-index is 10. I don’t really know what this means (yet), but
+My current h-index is 11. I don’t really know what this means (yet), but
 I can predict how this will grow over the next ten years.
 
 ``` r
@@ -398,25 +398,25 @@ comparable. 😳
 - Advances in Methods and Practices in Psychological Science
 - Frontiers in Psychology
 - Frontiers in Communication
+- Applied Psycholinguistics (10k)
+- Frontiers in Psychology
 
 ## Submitted
 
-- Applied Psycholinguistics (10k)
-- Frontiers in Psychology
+- International Journal of Bilingualism
 
 ## In prep
 
 - JASA
+- Linguistic approaches to bilingualism
 
 ## On deck
 
 - Journal of Second Language Pronunciation
-- International Journal of Bilingualism
 
 ## Wishlist
 
 - Heritage Language Journal
-- Linguistic approaches to bilingualism
 - Laboratory phonology
 
 ------------------------------------------------------------------------
@@ -444,48 +444,57 @@ filter(cite_key_list, type == "Article") %>%
   ref_printer
 ```
 
+Coretta, S., J. V. Casillas, and T. Roettger “Multidimensional signals
+and analytic flexibility: Estimating degrees of freedom in human speech
+analyses”. In: *Advances in Methods and Practices in Psychological
+Science*.
+
 Jiménez-Crespo, M. and J. V. Casillas (2021). “Literal is not always
 easier: Literal and default translation, post-editing effort, and
 comparable corpora”. In: *Translation, Cognition & Behavior* 4.1. DOI:
-10.1075/tcb.00048.jim.
+<https://doi.org/10.1075/tcb.00048.jim>.
 
 Casillas, J. V. (2021). “Interlingual Interactions Elicit Performance
 Mismatches Not ‘Compromise’ Categories in Early Bilinguals: Evidence
 from Meta-Analysis and Coronal Stops”. In: *Languages* 6.9, pp. 1-20.
-DOI: 10.3390/languages6010009.
+DOI: <https://doi.org/10.3390/languages6010009>.
 
-Lozano-Argüelles, C., L. F. Arroyo, N. Rodr'iguez, E. Durand, J. J. G.
-Pozu, J. M. Rojas, J. Varela, N. de Rocafiguera, and J. V. Casillas
+Lozano-Argüelles, C., L. F. Arroyo, N. Rodríguez, E. Durand, J. J. G.
+Pozú, J. M. Rojas, J. Varela, N. de Rocafiguera, and J. V. Casillas
 (2021). “Conceptually cued perceptual categorization in adult L2
 learners”. In: *Studies in Second Language Acquisition* 43.1, pp.
-204-219. DOI: 10.1017/S0272263120000273.
+204-219. DOI: <https://doi.org/10.1017/S0272263120000273>.
 
 Casillas, J. V. (2020). “The longitudinal development of fine-phonetic
 detail: Stop production in a domestic immersion program”. In: *Language
-Learning* 70.3, pp. 768-806. DOI: <https://doi.org/10.1111/lang.12392>.
+Learning* 70.3, pp. 768-806. DOI:
+<https://doi.org/https://doi.org/10.1111/lang.12392>.
 
 Casillas, J. V. (2020). “Phonetic category formation is perceptually
 driven during the early stages of adult L2 development”. In: *Language
-and Speech* 63.3, pp. 550-581. DOI: 10.1177/0023830919866225.
+and Speech* 63.3, pp. 550-581. DOI:
+<https://doi.org/10.1177/0023830919866225>.
 
 Lozano-Argüelles, C., N. Sagarra, and J. V. Casillas (2020). “Slowly but
 surely: Interpreting facilitates L2 morphological anticipation based on
 suprasegmental and segmental information”. In: *Bilingualism: Language
-and Cognition* 23.4, pp. 752-762. DOI: 10.1017/S1366728919000634.
+and Cognition* 23.4, pp. 752-762. DOI:
+<https://doi.org/10.1017/S1366728919000634>.
 
 Casillas, J. V. and M. Simonet (2018). “Perceptual categorization and
 bilingual language modes: Assessing the double phonemic boundary in
 early and late bilinguals”. In: *Journal of Phonetics* 71, pp. 51-64.
-DOI: 10.1016/j.wocn.2018.07.002.
+DOI: <https://doi.org/10.1016/j.wocn.2018.07.002>.
 
 Sagarra, N. and J. V. Casillas (2018). “Suprasegmental information cues
 morphological anticipation during L1/L2 lexical access”. In: *Journal of
-Second Language Studies* 1.1, pp. 31-59. DOI: 10.1075/jsls.17026.sag.
+Second Language Studies* 1.1, pp. 31-59. DOI:
+<https://doi.org/10.1075/jsls.17026.sag>.
 
 Bessett, R. M., J. V. Casillas, and M. Ramírez Martínez (2017).
 “Language choice and accommodation: Casual encounters in San Ysidro and
 Nogales”. In: *Spanish in Context* 14.1, pp. 78-98. DOI:
-10.1075/sic.14.1.04bes.
+<https://doi.org/10.1075/sic.14.1.04bes>.
 
 Casillas, J. V. (2017). “Reseña de Lacorte, Manel. 2014. The Routledge
 Handbook of Hispanic Applied Linguistics. New York: Routledge.” In:
@@ -494,19 +503,21 @@ Handbook of Hispanic Applied Linguistics. New York: Routledge.” In:
 Llompart, M. and J. V. Casillas (2016). “Lexically driven selective
 adaptation by ambiguous auditory stimuli occurs after limited exposure
 to adaptors”. In: *Journal of the Acoustical Society of America* 139.5,
-pp. EL172-EL177. DOI: 10.1121/1.4951704.
+pp. EL172-EL177. DOI: <https://doi.org/10.1121/1.4951704>.
 
 Casillas, J. V. and M. Simonet (2016). “Production and perception of the
 English /æ/-/ɑ/ contrast in switched-dominance speakers”. In: *Second
-Language Research* 32.2, pp. 171-195. DOI: 10.1177/0267658315608912.
+Language Research* 32.2, pp. 171-195. DOI:
+<https://doi.org/10.1177/0267658315608912>.
 
 Casillas, J. V. (2015). “Production and perception of the /i/-/ɪ/ vowel
 contrast: The case of L2-dominant early learners of English”. In:
-*Phonetica* 72.2-3, pp. 182-205. DOI: 10.1159/000431101.
+*Phonetica* 72.2-3, pp. 182-205. DOI:
+<https://doi.org/10.1159/000431101>.
 
 Casillas, J. V. (2012). “La fricativización del africado /tʃ/ en el
 habla de las mujeres del sur de Arizona”. In: *Divergencias: Revista de
-estudios lingü'isticos y literarios* 10.1, pp. 56-70.
+estudios lingüísticos y literarios* 10.1, pp. 56-70.
 
 Casillas, J. V. (2010). “La vibrante múltiple intervocálica: los
 ejercicios de canto como ayuda a su pronunciación en español”. In: *La

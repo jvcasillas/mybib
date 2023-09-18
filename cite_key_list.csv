@@ -1,4 +1,5 @@
 citekey,type,year
+coretta-casillas-roettger_amps-article_2023,Article,in press
 jimenez-casillas_tcb-article_2021,Article,2021
 casillas_languages-article_2021,Article,2021
 casillas_ssla-article_2020,Article,2021
@@ -16,12 +17,11 @@ casillas-diaz-simonet_icphs-article_2015,InProceedings,2015
 simonet-casillas-diaz_sp7-article_2014,InProceedings,2014
 casillas_wss6-article_2013,InProceedings,2013
 casillas_routledge-review_2017,Article,2017
-casillas-bessett-df-table_2013,Book,2013
-colina2013,Book,2013
+casillas-bessett_df-table_2013,Book,2013
+colina_fgc-book_2013,Book,2013
 casillas_divergencias-article_2012,Article,2012
 casillas_ghm-article_2010,Article,2010
 casillas_ghm-article_2009,Article,2009
-coretta-casillas-roettger_amps-article_2023,Book,under review
 casillas-etal_ap-article_2023,Book,under review
 casillas-simonet-aldrich_coronals-article_NA,Book,in preparation
 casillas_semproc-article_NA,Book,in preparation
@@ -46,8 +46,8 @@ sagarra-casillas_eurosla-pres_2021,Misc,2021
 lozano-sagarra-casillas_isbpac-pres_2021,Misc,2021
 casillas_caspslap-pres_2020,Misc,2020
 casillas_wise-pres_2020,Misc,2020
-casillas_hls-pres_2019,Misc,2019
-casillas_hls-pres_2019:1,Misc,2019
+casillas_hlsA-pres_2019,Misc,2019
+casillas_hlsB-pres_2019,Misc,2019
 simonet-casillas_coloq-pres_2019,Misc,2019
 colina-diaz-casillas_hls-pres_2018,Misc,2018
 lozano-sagarra-casillas_hls-pres_2018,Misc,2018
@@ -55,7 +55,7 @@ lozano-sagarra-casillas_isbpac-pres_2018,Misc,2018
 lozano-sagarra-casillas_isb-pres_2017,Misc,2017
 casillas_hlsA-pres_2017,Misc,2017
 casillas_hlsB-pres_2017,Misc,2017
-casillas-slrf-pres_2017,Misc,2017
+casillas_slrf-pres_2017,Misc,2017
 casillas_lsrlA-pres_2017,Misc,2017
 casillas_lsrlB-pres_2017,Misc,2017
 casillas_sshl-pres_2017,Misc,2017
@@ -70,7 +70,7 @@ casillas_papi-pres_2013,Misc,2013
 casillas_wss6-pres_2013,Misc,2013
 casillas_symp-pres_2012,Misc,2012
 casillas_symp-pres_2011,Misc,2011
-casillas_share-pres2011,Misc,2011
+casillas_share-pres_2011,Misc,2011
 casillas_icphs-poster_2019,Misc,2019
 lozano-sagarra-casillas_iicped-poster_2018,Misc,2018
 sagarra-casillas_sbl2p-poster_2018,Misc,2018
@@ -87,7 +87,7 @@ sagarra-casillas-lozano-eriksson_arestyUNREF-poster_2017,Misc,2017
 sagarra-casillas-lozano-rodriguez_pcsf11-poster_2017,Misc,2017
 casillas_anwA-talk_2018,Misc,2018
 casillas_amwB-talk_2018,Misc,2018
-casillas-dmlwc-talk_2017,Misc,2017
+casillas_dmlwc-talk_2017,Misc,2017
 casillas_slat-talk_2014,Misc,2014
 casillas_rmdgit-ws_2021,Misc,2021
 casillas-coretta-roettger_bayes-ws_2021,Misc,2021
