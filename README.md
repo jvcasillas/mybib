@@ -1,7 +1,7 @@
 
 # mybib
 
-**Last Updated**: 2024-01-15 11:57:00.810459  
+**Last Updated**: 2024-01-15 13:07:04.274321  
 **License**: Public Domain (CC-0)
 
 Version controlled .bib files for my scholarly work, as well as some
