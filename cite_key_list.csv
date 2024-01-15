@@ -1,5 +1,11 @@
 citekey,type,year
-coretta-casillas-roettger_amps-article_2023,Article,in press
+lozano-sagarra-casillas_ll-article_2023,Book,In press
+bochunska-etal_gpsy-article_2023,Book,2023
+sagarra-casillas_frontiers-article_2023,Article,2023
+lozano-casillas-sagarra_frontiers-article_2023,Article,2023
+coretta-etal_ampps-article_2023,Article,2023
+casillas-etal_ap-article_2023,Article,2023
+carignan-casillas-chodroff-zellou_fic-article_2022,Article,2022
 jimenez-casillas_tcb-article_2021,Article,2021
 casillas_languages-article_2021,Article,2021
 casillas_ssla-article_2020,Article,2021
@@ -9,7 +15,7 @@ sagarra-lozano-casillas_blc-article_2019,Article,2020
 casillas-simonet_jphon-article_2018,Article,2018
 sagarra-casillas_jsls-article_2018,Article,2018
 bessett-casillas-ramirez_spic-article_2017,Article,2017
-llmopart-casillas_jasael-article_2016,Article,2016
+llompart-casillas_jasael-article_2016,Article,2016
 casillas-simonet_slr-article_2016,Article,2016
 casillas_phonetica-article_2015,Article,2015
 casillas_icphs-article_2019,InProceedings,2019
@@ -22,17 +28,27 @@ colina_fgc-book_2013,Book,2013
 casillas_divergencias-article_2012,Article,2012
 casillas_ghm-article_2010,Article,2010
 casillas_ghm-article_2009,Article,2009
-casillas-etal_ap-article_2023,Book,under review
+colina-casillas_shll-article_NA,Book,Under review
+rascon-casillas_ijb-article_NA,Book,Under review
+casillas-etal_linguistics-article_NA,Book,Under review
+casillas_bayes-article_NA,Book,in preparation
+coretta-casillas_gams-article_NA,Book,in preparation
+garrido-casillas_lextale-article_NA,Book,in preparation
+rodriguez-casillas_stressprod-article_NA,Book,in preparation
+rodriguez-casillas_stressperc-article_NA,Book,in preparation
+rodriguez-casillas_stressped-article_NA,Book,in preparation
 casillas-simonet-aldrich_coronals-article_NA,Book,in preparation
 casillas_semproc-article_NA,Book,in preparation
 casillas_stress-article_NA,Book,in preparation
-sagarra-casillas_lexstress-article_NA,Book,in preparation
-sagarra-casillas_frontiers-article_NA,Book,in preparation
+casillas_rult-rpackage_NA,Electronic,2023
+casillas_worldlanguages-rpackage_NA,Electronic,2022
 casillas_ds4ling-rpackage_NA,Electronic,2021
 casillas_contributoR-rpackage_NA,Electronic,2020
 casillas_academicWriteR-rpackage_NA,Electronic,2018
 casillas_untidydata-rpackage_NA,Electronic,2018
 casillas_lingStuff-rpackage_NA,Electronic,2017
+casillas_msa-shiny_NA,Electronic,2023
+casillas_paramspace-shiny_NA,Electronic,2021
 casillas_r4ling-shiny_NA,Electronic,2018
 casillas_clt-shiny_NA,Electronic,2018
 casillas_blr-shiny_NA,Electronic,2018
@@ -40,11 +56,22 @@ casillas_glm-shiny_NA,Electronic,2018
 casillas_crossover-shiny_NA,Electronic,2018
 casillas_power-shiny_NA,Electronic,2018
 casillas_distinctivefeatures-shiny_NA,Electronic,2017
+casillas_ruthesis-prog_NA,Electronic,2021
+casillas_uathesis-prog_NA,Electronic,2020
 casillas_rsnippets-prog_NA,Electronic,2017
 casillas_latexipa-prog_NA,Electronic,2017
+roettger-casillas_icphs-pres_2023,Misc,2023
+rascon-casillas_hls-pres_2023,Misc,2023
+garrido-casillas_hls-pres_2022,Misc,2022
+sagarra-casillas_hls-pres_2022,Misc,2022
+casillas_lagb-pres_2022,Misc,2022
+casillas_newsounds-pres_2022,Misc,2022
+casillas-garrido-rodriguez_caspslap-pres_2022,Misc,2022
+casillas-garrido-rodriguez_hls-pres_2021,Misc,2021
 sagarra-casillas_eurosla-pres_2021,Misc,2021
 lozano-sagarra-casillas_isbpac-pres_2021,Misc,2021
-casillas_caspslap-pres_2020,Misc,2020
+jimenez-casillas_tt5-pres_2020,Misc,2022
+casillas-etal_caspslap-pres_2020,Misc,2020
 casillas_wise-pres_2020,Misc,2020
 casillas_hlsA-pres_2019,Misc,2019
 casillas_hlsB-pres_2019,Misc,2019
@@ -70,7 +97,7 @@ casillas_papi-pres_2013,Misc,2013
 casillas_wss6-pres_2013,Misc,2013
 casillas_symp-pres_2012,Misc,2012
 casillas_symp-pres_2011,Misc,2011
-casillas_share-pres_2011,Misc,2011
+correta-casillas-roettger_eorc-poster_2022,Misc,2022
 casillas_icphs-poster_2019,Misc,2019
 lozano-sagarra-casillas_iicped-poster_2018,Misc,2018
 sagarra-casillas_sbl2p-poster_2018,Misc,2018
@@ -80,20 +107,36 @@ casillas-diaz-simonet_icphs-poster_2015,Misc,2015
 simonet-casillas-diaz_hls-poster_2014,Misc,2014
 simonet-casillas-diaz_sp7-poster_2014,Misc,2014
 casillas_pplc-poster_2013,Misc,2013
+subina-casillas_arestyUNREF-poster_2023,Misc,2023
+taveras-casillas_arestyUNREF-poster_2022,Misc,2022
 chang-gomez-casillas_arestyUNREF-poster_2021,Misc,2021
 field-casillas_arestyUNREF-poster_2020,Misc,2020
 casillas_middUNREF-pres_2017,Misc,2017
 sagarra-casillas-lozano-eriksson_arestyUNREF-poster_2017,Misc,2017
 sagarra-casillas-lozano-rodriguez_pcsf11-poster_2017,Misc,2017
+casillas_share-pres_2011,Misc,2011
+casillas_uasymposium-talk_2024,Misc,2024
+casillas_caspslap-talk_2024,Misc,2024
+casillas_advmethods-talk_2024,Misc,2024
+casillas_figs-talk_2023,Misc,2023
+casillas_furman-talk_2023,Misc,2023
+casillas_toronto-talk_2023,Misc,2023
+casillas_penn-talk_2023,Misc,2023
+casillas_uiuc-talk_2023,Misc,2023
 casillas_anwA-talk_2018,Misc,2018
 casillas_amwB-talk_2018,Misc,2018
 casillas_dmlwc-talk_2017,Misc,2017
 casillas_slat-talk_2014,Misc,2014
-casillas_rmdgit-ws_2021,Misc,2021
+casillas_uasymposium-ws_2024,Misc,2024
+casillas_princeton-ws_2024,Misc,2024
+casillas_psllt-ws_2023,Misc,2023
+casillas_stats-ws_2022,Misc,2022
+casillas_git-ws_2021,Misc,2021
+casillas_rmd-ws_2021,Misc,2021
 casillas-coretta-roettger_bayes-ws_2021,Misc,2021
 casillas_publishing-ws_2020,Misc,2020
-casillas_jobmarket-ws_2018,Misc,2019
 casillas_jobmarket-ws_2019,Misc,2019
+casillas_jobmarket-ws_2018,Misc,2018
 casillas_pronunciation-ws_2018,Misc,2018
 casillas_psychopy-ws_2017,Misc,2017
 casillas_hped-ws_2017,Misc,2017
