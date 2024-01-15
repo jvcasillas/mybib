@@ -1,7 +1,7 @@
 
 # mybib
 
-**Last Updated**: 2024-01-15 11:14:17.534003  
+**Last Updated**: 2024-01-15 11:57:00.810459  
 **License**: Public Domain (CC-0)
 
 Version controlled .bib files for my scholarly work, as well as some
@@ -53,8 +53,8 @@ And now some basic statistics on its contents:
 counts <- xtabs(~bibtype, data = bib) %>% as_tibble
 
 counts %>% 
-  mutate(., bibtype = fct_reorder(bibtype, n)) %>% 
-  ggplot(., aes(x = bibtype, y = n, label = n)) + 
+  mutate(bibtype = fct_reorder(bibtype, n)) %>% 
+  ggplot(aes(x = bibtype, y = n, label = n)) + 
     geom_bar(stat = 'identity', color = 'black', 
              fill = 'darkred', width = 0.1) + 
     geom_point(pch = 21, size = 10, color = 'black', fill = 'lightgrey') + 
@@ -64,12 +64,6 @@ counts %>%
     my_theme()
 ```
 
-    ## Warning: The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.
-    ## ℹ Please use the `linewidth` argument instead.
-    ## This warning is displayed once every 8 hours.
-    ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-    ## generated.
-
 <img src="README_files/figure-gfm/bibtype-1.png" width="768" />
 
 ## Journals
@@ -78,11 +72,11 @@ counts %>%
 datj <- aggregate(bibtype ~ journal, data = bib, FUN = length)
 
 dat %>% 
-  group_by(., journal) %>% 
-  summarize(., counts = n(), .groups = "drop") %>% 
+  group_by(journal) %>% 
+  summarize(counts = n(), .groups = "drop") %>% 
   na.omit() %>% 
-  mutate(., journal = fct_reorder(journal, counts)) %>% 
-  ggplot(., aes(x = journal, y = counts, label = counts)) + 
+  mutate(journal = fct_reorder(journal, counts)) %>% 
+  ggplot(aes(x = journal, y = counts, label = counts)) + 
     geom_bar(stat = "identity", color = 'black', 
              fill = 'darkred', width = 0.1) + 
     geom_point(pch = 21, size = 10, color = 'black', fill = 'lightgrey') + 
@@ -108,17 +102,19 @@ for (i in 1:length(bib)) {
 
 # Convert to tibble and plot
 map(authors, HTMLdecode) %>% 
-  unlist(.) %>% 
-  enframe(.) %>% 
-  group_by(., value) %>% 
-  summarize(., counts = n(), .groups = "drop") %>% 
-  mutate(., value = fct_reorder(value, counts)) %>% 
-  ggplot(., aes(x = value, y = counts, label = counts)) + 
+  unlist() %>% 
+  enframe() %>% 
+  group_by(value) %>% 
+  summarize(counts = n(), .groups = "drop") %>% 
+  mutate(value = fct_reorder(value, counts)) %>% 
+  filter(counts >= 2, value != "Casillas") %>% 
+  ggplot(aes(x = value, y = counts, label = counts)) + 
     geom_bar(stat = "identity", color = 'black', 
              fill = 'darkred', width = 0.1) + 
     geom_point(pch = 21, size = 10, color = 'black', fill = 'lightgrey') + 
     geom_text() + 
-    labs(y = "Count", x = "Author") + 
+    labs(y = "Count (>= 2)", x = "Author", 
+         title = "Most frequent collaborators") + 
     coord_flip() + 
     my_theme()
 ```
@@ -129,27 +125,30 @@ map(authors, HTMLdecode) %>%
 
 ``` r
 prod <- dat %>% 
-  select(., year) %>% 
-  na.omit(.) %>% 
-  group_by(., year) %>% 
-  summarize(., counts = n(), .groups = "drop") %>% 
-  ungroup(.) %>% 
-  mutate(., status = if_else(year <=2012, 'MA\nStudent', 
-                             if_else(year <=2016, 'PhD\nStudent', 
-                                     'Asst.\nProf')), 
-            status = fct_relevel(status, 
-                                 c('MA\nStudent', 'PhD\nStudent', 
-                                   'Asst.\nProf')))
+  select(year) %>% 
+  na.omit() %>% 
+  group_by(year) %>% 
+  summarize(counts = n(), .groups = "drop") %>% 
+  ungroup() %>% 
+  mutate(
+    status = case_when(
+        year <= 2012               ~ "MA\nStudent", 
+        year >  2012 & year < 2016 ~ "PhD\nStudent", 
+        year >= 2016 & year < 2022 ~ "Asst.\nProf", 
+        year >= 2022               ~ "Assoc.\nProf"
+      ),
+    status = fct_relevel(status,  c('MA\nStudent', 'PhD\nStudent', 'Asst.\nProf'))
+  )
 
 year_max <- max(prod$counts)
 year_current <- prod$year %>% unique %>% max
 
 prod %>% 
-  ggplot(., aes(x = year, y = counts, label = counts)) + 
+  ggplot(aes(x = year, y = counts, label = counts)) + 
     geom_bar(stat = "identity", color = 'black', 
              fill = 'black', width = 0.1) + 
     geom_point(aes(shape = status, fill = status), size = 10, color = 'black') + 
-    scale_shape_manual(name = '', values = 21:23) + 
+    scale_shape_manual(name = '', values = 21:24) + 
     scale_x_continuous(breaks = seq(2009, year_current, 1)) + 
     geom_text(color = 'white') + 
     scale_fill_brewer(name = '', palette = 'Set1') + 
@@ -265,7 +264,7 @@ I can predict how this will grow over the next ten years.
 
 ``` r
 my_h %>% 
-  ggplot(., aes(x = years_ahead, y = h_index)) + 
+  ggplot(aes(x = years_ahead, y = h_index)) + 
     geom_hline(yintercept = ms_h[1, 2], lty = 3) + 
     geom_path() + 
     geom_point(pch = 24, fill = "grey90", size = 3) + 
@@ -277,7 +276,7 @@ my_h %>%
 
 ``` r
 ms_h %>% 
-  ggplot(., aes(x = years_ahead, y = h_index)) + 
+  ggplot(aes(x = years_ahead, y = h_index)) + 
     geom_hline(yintercept = ms_h[1, 2], lty = 3) + 
     geom_path() + 
     geom_point(pch = 24, fill = "grey90", size = 3) + 
@@ -295,7 +294,7 @@ This might be a useful metric for setting goals.
 ``` r
 # Plot h-index side by side
 h_index_1 <- bind_rows(my_h, ms_h, mj_h) %>% 
-  ggplot(., aes(x = years_ahead, y = h_index, shape = author, color = author)) + 
+  ggplot(aes(x = years_ahead, y = h_index, shape = author, color = author)) + 
     geom_path() + 
     geom_point(fill = "grey90", size = 3) + 
     scale_color_viridis_d(option = "C", end = 0.4) + 
@@ -406,11 +405,12 @@ comparable. 😳
 ## Submitted
 
 - International Journal of Bilingualism
+- Linguistic approaches to bilingualism
+- Linguistics: An Interdisciplinary Journal of the Language Sciences
 
 ## In prep
 
 - JASA
-- Linguistic approaches to bilingualism
 
 ## On deck
 
@@ -446,12 +446,17 @@ filter(cite_key_list, type == "Article") %>%
   ref_printer
 ```
 
-Sagarra, N. and . Casillas, J. V. (2023). “Practice beats age:
+Bochynska, A., L. Keeble, C. Halfacre, J. V. Casillas, I. Champagne, K.
+Chen, M. Röthlisberger, E. M. Buchanan, and T. B. Roettger (2023).
+“Reproducible research practices and transparency across Linguistics”.
+In: *Glossa Psycholinguistics* 2 (1), pp. 1-36. DOI: 10.5070/G6011239.
+
+Sagarra, N. and J. V. Casillas (2023). “Practice beats age:
 Co-activation shapes heritage speakers’ lexical access more than age of
 onset”. In: *Frontiers in Psychology* 14, pp. 1-18. DOI:
 10.3389/fpsyg.2023.1141174.
 
-Lozano-Argüelles, C., N. Sagarra, and . Casillas, J. V. (2023).
+Lozano-Argüelles, C., N. Sagarra, and J. V. Casillas (2023).
 “Interpreting experience and working memory effects on L1 and L2
 morphological prediction”. In: *Frontiers in Language Sciences* 1, pp.
 1-16. DOI: 10.3389/flang.2022.1065014.

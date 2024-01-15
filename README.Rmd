@@ -23,8 +23,8 @@ my_theme <- function() {
       plot.subtitle = element_text(size = rel(0.9)),
       plot.caption = element_text(color = "#777777", vjust = 0),
       axis.title = element_text(size = rel(.9), hjust = 0.95, face = "italic"), 
-      panel.grid.major = element_line(size = rel(.1), color = "grey70"), 
-      panel.grid.minor = element_line(size = rel(.1), color = "grey70")
+      panel.grid.major = element_line(linewidth = rel(.1), color = "grey70"), 
+      panel.grid.minor = element_line(linewidth = rel(.1), color = "grey70")
     )
 }
 
@@ -89,8 +89,8 @@ And now some basic statistics on its contents:
 counts <- xtabs(~bibtype, data = bib) %>% as_tibble
 
 counts %>% 
-  mutate(., bibtype = fct_reorder(bibtype, n)) %>% 
-  ggplot(., aes(x = bibtype, y = n, label = n)) + 
+  mutate(bibtype = fct_reorder(bibtype, n)) %>% 
+  ggplot(aes(x = bibtype, y = n, label = n)) + 
     geom_bar(stat = 'identity', color = 'black', 
              fill = 'darkred', width = 0.1) + 
     geom_point(pch = 21, size = 10, color = 'black', fill = 'lightgrey') + 
@@ -106,11 +106,11 @@ counts %>%
 datj <- aggregate(bibtype ~ journal, data = bib, FUN = length)
 
 dat %>% 
-  group_by(., journal) %>% 
-  summarize(., counts = n(), .groups = "drop") %>% 
+  group_by(journal) %>% 
+  summarize(counts = n(), .groups = "drop") %>% 
   na.omit() %>% 
-  mutate(., journal = fct_reorder(journal, counts)) %>% 
-  ggplot(., aes(x = journal, y = counts, label = counts)) + 
+  mutate(journal = fct_reorder(journal, counts)) %>% 
+  ggplot(aes(x = journal, y = counts, label = counts)) + 
     geom_bar(stat = "identity", color = 'black', 
              fill = 'darkred', width = 0.1) + 
     geom_point(pch = 21, size = 10, color = 'black', fill = 'lightgrey') + 
@@ -134,17 +134,19 @@ for (i in 1:length(bib)) {
 
 # Convert to tibble and plot
 map(authors, HTMLdecode) %>% 
-  unlist(.) %>% 
-  enframe(.) %>% 
-  group_by(., value) %>% 
-  summarize(., counts = n(), .groups = "drop") %>% 
-  mutate(., value = fct_reorder(value, counts)) %>% 
-  ggplot(., aes(x = value, y = counts, label = counts)) + 
+  unlist() %>% 
+  enframe() %>% 
+  group_by(value) %>% 
+  summarize(counts = n(), .groups = "drop") %>% 
+  mutate(value = fct_reorder(value, counts)) %>% 
+  filter(counts >= 2, value != "Casillas") %>% 
+  ggplot(aes(x = value, y = counts, label = counts)) + 
     geom_bar(stat = "identity", color = 'black', 
              fill = 'darkred', width = 0.1) + 
     geom_point(pch = 21, size = 10, color = 'black', fill = 'lightgrey') + 
     geom_text() + 
-    labs(y = "Count", x = "Author") + 
+    labs(y = "Count (>= 2)", x = "Author", 
+         title = "Most frequent collaborators") + 
     coord_flip() + 
     my_theme()
 ```
@@ -153,27 +155,30 @@ map(authors, HTMLdecode) %>%
 
 ```{r, 'year', fig.retina=2}
 prod <- dat %>% 
-  select(., year) %>% 
-  na.omit(.) %>% 
-  group_by(., year) %>% 
-  summarize(., counts = n(), .groups = "drop") %>% 
-  ungroup(.) %>% 
-  mutate(., status = if_else(year <=2012, 'MA\nStudent', 
-                             if_else(year <=2016, 'PhD\nStudent', 
-                                     'Asst.\nProf')), 
-            status = fct_relevel(status, 
-                                 c('MA\nStudent', 'PhD\nStudent', 
-                                   'Asst.\nProf')))
+  select(year) %>% 
+  na.omit() %>% 
+  group_by(year) %>% 
+  summarize(counts = n(), .groups = "drop") %>% 
+  ungroup() %>% 
+  mutate(
+    status = case_when(
+        year <= 2012               ~ "MA\nStudent", 
+        year >  2012 & year < 2016 ~ "PhD\nStudent", 
+        year >= 2016 & year < 2022 ~ "Asst.\nProf", 
+        year >= 2022               ~ "Assoc.\nProf"
+      ),
+    status = fct_relevel(status,  c('MA\nStudent', 'PhD\nStudent', 'Asst.\nProf'))
+  )
 
 year_max <- max(prod$counts)
 year_current <- prod$year %>% unique %>% max
 
 prod %>% 
-  ggplot(., aes(x = year, y = counts, label = counts)) + 
+  ggplot(aes(x = year, y = counts, label = counts)) + 
     geom_bar(stat = "identity", color = 'black', 
              fill = 'black', width = 0.1) + 
     geom_point(aes(shape = status, fill = status), size = 10, color = 'black') + 
-    scale_shape_manual(name = '', values = 21:23) + 
+    scale_shape_manual(name = '', values = 21:24) + 
     scale_x_continuous(breaks = seq(2009, year_current, 1)) + 
     geom_text(color = 'white') + 
     scale_fill_brewer(name = '', palette = 'Set1') + 
@@ -217,7 +222,7 @@ over the next ten years.
 
 ```{r, 'h-plot', fig.retina=2}
 my_h %>% 
-  ggplot(., aes(x = years_ahead, y = h_index)) + 
+  ggplot(aes(x = years_ahead, y = h_index)) + 
     geom_hline(yintercept = ms_h[1, 2], lty = 3) + 
     geom_path() + 
     geom_point(pch = 24, fill = "grey90", size = 3) + 
@@ -225,7 +230,7 @@ my_h %>%
     my_theme()
 
 ms_h %>% 
-  ggplot(., aes(x = years_ahead, y = h_index)) + 
+  ggplot(aes(x = years_ahead, y = h_index)) + 
     geom_hline(yintercept = ms_h[1, 2], lty = 3) + 
     geom_path() + 
     geom_point(pch = 24, fill = "grey90", size = 3) + 
@@ -242,7 +247,7 @@ This might be a useful metric for setting goals.
 ```{r, 'compare-h', fig.retina=2}
 # Plot h-index side by side
 h_index_1 <- bind_rows(my_h, ms_h, mj_h) %>% 
-  ggplot(., aes(x = years_ahead, y = h_index, shape = author, color = author)) + 
+  ggplot(aes(x = years_ahead, y = h_index, shape = author, color = author)) + 
     geom_path() + 
     geom_point(fill = "grey90", size = 3) + 
     scale_color_viridis_d(option = "C", end = 0.4) + 
@@ -342,11 +347,12 @@ Both MS and I had bumps in year 5, but they aren't even remotely comparable. ðŸ˜
 ## Submitted
 
 - International Journal of Bilingualism
+- Linguistic approaches to bilingualism 
+- Linguistics: An Interdisciplinary Journal of the Language Sciences
 
 ## In prep
 
 - JASA
-- Linguistic approaches to bilingualism 
 
 ## On deck
 
