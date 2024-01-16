@@ -1,7 +1,7 @@
 
 # mybib
 
-**Last Updated**: 2024-01-15 13:07:04.274321  
+**Last Updated**: 2024-01-16 12:11:09.004493  
 **License**: Public Domain (CC-0)
 
 Version controlled .bib files for my scholarly work, as well as some
@@ -187,28 +187,28 @@ compare_scholars(ids)
     ## 9  6sd7cVAAAAAJ 2020    59   284 Joseph V. Casillas
     ## 10 6sd7cVAAAAAJ 2021    15   299 Joseph V. Casillas
     ## 11 6sd7cVAAAAAJ 2022     1   300 Joseph V. Casillas
-    ## 12 6sd7cVAAAAAJ 2023    12   312 Joseph V. Casillas
-    ## 13 6sd7cVAAAAAJ   NA     0   312 Joseph V. Casillas
+    ## 12 6sd7cVAAAAAJ 2023    10   310 Joseph V. Casillas
+    ## 13 6sd7cVAAAAAJ   NA     1   311 Joseph V. Casillas
     ## 14 GnYMTI8AAAAJ 2005    29    29     Miquel Simonet
     ## 15 GnYMTI8AAAAJ 2006     9    38     Miquel Simonet
     ## 16 GnYMTI8AAAAJ 2007     0    38     Miquel Simonet
-    ## 17 GnYMTI8AAAAJ 2008   179   217     Miquel Simonet
-    ## 18 GnYMTI8AAAAJ 2009    26   243     Miquel Simonet
-    ## 19 GnYMTI8AAAAJ 2010   216   459     Miquel Simonet
-    ## 20 GnYMTI8AAAAJ 2011   344   803     Miquel Simonet
-    ## 21 GnYMTI8AAAAJ 2012   202  1005     Miquel Simonet
-    ## 22 GnYMTI8AAAAJ 2013     0  1005     Miquel Simonet
-    ## 23 GnYMTI8AAAAJ 2014   184  1189     Miquel Simonet
-    ## 24 GnYMTI8AAAAJ 2015    94  1283     Miquel Simonet
-    ## 25 GnYMTI8AAAAJ 2016    38  1321     Miquel Simonet
-    ## 26 GnYMTI8AAAAJ 2017     9  1330     Miquel Simonet
-    ## 27 GnYMTI8AAAAJ 2018    58  1388     Miquel Simonet
-    ## 28 GnYMTI8AAAAJ 2019    12  1400     Miquel Simonet
-    ## 29 GnYMTI8AAAAJ 2020    53  1453     Miquel Simonet
-    ## 30 GnYMTI8AAAAJ 2021    14  1467     Miquel Simonet
-    ## 31 GnYMTI8AAAAJ 2022     9  1476     Miquel Simonet
-    ## 32 GnYMTI8AAAAJ 2023     4  1480     Miquel Simonet
-    ## 33 GnYMTI8AAAAJ   NA     0  1480     Miquel Simonet
+    ## 17 GnYMTI8AAAAJ 2008   180   218     Miquel Simonet
+    ## 18 GnYMTI8AAAAJ 2009    26   244     Miquel Simonet
+    ## 19 GnYMTI8AAAAJ 2010   218   462     Miquel Simonet
+    ## 20 GnYMTI8AAAAJ 2011   344   806     Miquel Simonet
+    ## 21 GnYMTI8AAAAJ 2012   202  1008     Miquel Simonet
+    ## 22 GnYMTI8AAAAJ 2013     0  1008     Miquel Simonet
+    ## 23 GnYMTI8AAAAJ 2014   184  1192     Miquel Simonet
+    ## 24 GnYMTI8AAAAJ 2015    94  1286     Miquel Simonet
+    ## 25 GnYMTI8AAAAJ 2016    38  1324     Miquel Simonet
+    ## 26 GnYMTI8AAAAJ 2017     9  1333     Miquel Simonet
+    ## 27 GnYMTI8AAAAJ 2018    58  1391     Miquel Simonet
+    ## 28 GnYMTI8AAAAJ 2019    12  1403     Miquel Simonet
+    ## 29 GnYMTI8AAAAJ 2020    53  1456     Miquel Simonet
+    ## 30 GnYMTI8AAAAJ 2021    14  1470     Miquel Simonet
+    ## 31 GnYMTI8AAAAJ 2022     9  1479     Miquel Simonet
+    ## 32 GnYMTI8AAAAJ 2023     4  1483     Miquel Simonet
+    ## 33 GnYMTI8AAAAJ   NA     0  1483     Miquel Simonet
 
 ``` r
 compare_scholar_careers(ids)
@@ -224,8 +224,8 @@ compare_scholar_careers(ids)
     ## 7  6sd7cVAAAAAJ 2019    21           6 Joseph V. Casillas
     ## 8  6sd7cVAAAAAJ 2020    46           7 Joseph V. Casillas
     ## 9  6sd7cVAAAAAJ 2021    54           8 Joseph V. Casillas
-    ## 10 6sd7cVAAAAAJ 2022    53           9 Joseph V. Casillas
-    ## 11 6sd7cVAAAAAJ 2023    66          10 Joseph V. Casillas
+    ## 10 6sd7cVAAAAAJ 2022    54           9 Joseph V. Casillas
+    ## 11 6sd7cVAAAAAJ 2023    64          10 Joseph V. Casillas
     ## 12 6sd7cVAAAAAJ 2024     2          11 Joseph V. Casillas
     ## 13 GnYMTI8AAAAJ 2007     5           0     Miquel Simonet
     ## 14 GnYMTI8AAAAJ 2008     5           1     Miquel Simonet
@@ -243,7 +243,7 @@ compare_scholar_careers(ids)
     ## 26 GnYMTI8AAAAJ 2020   190          13     Miquel Simonet
     ## 27 GnYMTI8AAAAJ 2021   150          14     Miquel Simonet
     ## 28 GnYMTI8AAAAJ 2022   162          15     Miquel Simonet
-    ## 29 GnYMTI8AAAAJ 2023   156          16     Miquel Simonet
+    ## 29 GnYMTI8AAAAJ 2023   158          16     Miquel Simonet
     ## 30 GnYMTI8AAAAJ 2024     3          17     Miquel Simonet
 
 ``` r
