@@ -45,17 +45,14 @@ my_theme <- function() {
 **Last Updated**: `r sprintf("%s", Sys.time())`  
 **License**: Public Domain (CC-0)
 
-Version controlled .bib files for my scholarly work, as well as some light 
-analyses and a complete reference list.
+Version controlled .bib files for my scholarly work, as well as some light analyses and a complete reference list.
 
 This repo now includes two main bib files: 
 __publications_html.bib__ and __publications_latex.bib__. 
 
-I call these files in to other projects (e.g., cv, personal website) when I 
-want to print a list of references. 
+I call these files in to other projects (e.g., cv, personal website) when I want to print a list of references. 
 
-Initial commit is a direct copy of example done by 
-[leeper](https://github.com/leeper/references). 
+Initial commit is a direct copy of example done by [leeper](https://github.com/leeper/references). 
 
 ----
 

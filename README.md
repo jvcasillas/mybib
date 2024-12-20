@@ -2,7 +2,7 @@
 
 # mybib
 
-**Last Updated**: 2024-11-29 18:18:27.679088  
+**Last Updated**: 2024-12-20 14:28:00.28061  
 **License**: Public Domain (CC-0)
 
 Version controlled .bib files for my scholarly work, as well as some
@@ -452,6 +452,17 @@ filter(cite_key_list, type == "Article") |>
   pull(citekey) |> 
   ref_printer()
 ```
+
+Coretta, S. and J. V. Casillas (2024). “A tutorial on generalised
+additive mixed effects models for bilingualism research”. In:
+*Linguistic Approaches to Bilingualism*, pp. 1-24. DOI:
+10.1075/lab.23076.cor.
+
+Sagarra, N., L. Fernández, C. Lozano-Argüelles, and J. V. Casillas
+(2024). “Unraveling the Complexities of Second Language Lexical Stress
+Processing: The Impact of First Language Transfer, Second Language
+Proficiency, and Exposure”. In: *Language Learning* 74 (3), pp. 574-605.
+DOI: 10.1111/lang.12627.
 
 Bochynska, A., L. Keeble, C. Halfacre, J. V. Casillas, I. Champagne, K.
 Chen, M. Röthlisberger, E. M. Buchanan, and T. B. Roettger (2023).
