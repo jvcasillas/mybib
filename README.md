@@ -2,7 +2,7 @@
 
 # mybib
 
-**Last Updated**: 2024-12-20 16:52:55.023955  
+**Last Updated**: 2024-12-20 17:00:14.696378  
 **License**: Public Domain (CC-0)
 
 Version controlled .bib files for my scholarly work, as well as some
@@ -461,13 +461,13 @@ additive mixed effects models for bilingualism research”. In:
 Sagarra, N., L. Fernández, C. Lozano-Argüelles, and J. V. Casillas
 (2024). “Unraveling the Complexities of Second Language Lexical Stress
 Processing: The Impact of First Language Transfer, Second Language
-Proficiency, and Exposure”. In: *Language Learning* 74 (3), pp. 574-605.
+Proficiency, and Exposure”. In: *Language Learning* 74.3, pp. 574-605.
 DOI: 10.1111/lang.12627.
 
 Bochynska, A., L. Keeble, C. Halfacre, J. V. Casillas, I. Champagne, K.
 Chen, M. Röthlisberger, E. M. Buchanan, and T. B. Roettger (2023).
 “Reproducible research practices and transparency across Linguistics”.
-In: *Glossa Psycholinguistics* 2 (1), pp. 1-36. DOI: 10.5070/G6011239.
+In: *Glossa Psycholinguistics* 2.1, pp. 1-36. DOI: 10.5070/G6011239.
 
 Sagarra, N. and J. V. Casillas (2023). “Practice beats age:
 Co-activation shapes heritage speakers’ lexical access more than age of
